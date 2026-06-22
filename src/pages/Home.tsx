@@ -1,17 +1,19 @@
 import { Hero } from "../sections/Hero";
+import { About } from "../sections/About";
+import { Services } from "../sections/Services";
+import { Benefits } from "../sections/Benefits";
+import { CloudShowcase } from "../sections/CloudShowcase";
+import { DemoCTA } from "../sections/DemoCTA";
 
 export default function Home() {
   return (
     <>
       <Hero />
-
-      {/* placeholder anchor — Über uns / Team section lands here next */}
-      <section id="ueber-uns" className="shell py-section">
-        <span className="eyebrow">Über uns</span>
-        <p className="mt-4 max-w-prose text-lg text-ink/60">
-          Nächste Sektion folgt: Über uns / Team.
-        </p>
-      </section>
+      <About />
+      <Services />
+      <Benefits />
+      <CloudShowcase />
+      <DemoCTA />
     </>
   );
 }
