@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Reveal, Stagger } from "../components/Reveal";
 import { SectionHeading } from "../components/SectionHeading";
 import { fadeUp } from "../lib/motion";
@@ -56,13 +57,13 @@ export function Benefits() {
           <h3 className="font-display text-xl font-semibold">
             Bereit, sichtbar zu werden?
           </h3>
-          <a
-            href="/anfrage"
+          <Link
+            to="/anfrage"
             className="mt-4 inline-flex w-fit items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-accent"
             data-cursor="grow"
           >
             Anfrage starten
-          </a>
+          </Link>
         </Reveal>
       </Stagger>
     </section>

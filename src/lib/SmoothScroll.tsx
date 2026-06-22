@@ -10,7 +10,7 @@ import { usePrefersReducedMotion } from "./useMediaPreferences";
  */
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   const reduced = usePrefersReducedMotion();
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
     if (reduced) return;
@@ -55,14 +55,23 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     };
   }, [reduced]);
 
-  // Reset scroll position on route change
+  // On navigation: scroll to a #hash target if present, else reset to top
   useEffect(() => {
-    if (window.__lenis) {
-      window.__lenis.scrollTo(0, { immediate: true });
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }, [pathname]);
+    // wait a frame so the target route has rendered
+    const id = requestAnimationFrame(() => {
+      if (hash) {
+        const el = document.querySelector(hash);
+        if (el) {
+          if (window.__lenis) window.__lenis.scrollTo(el as HTMLElement, { offset: -80 });
+          else (el as HTMLElement).scrollIntoView();
+          return;
+        }
+      }
+      if (window.__lenis) window.__lenis.scrollTo(0, { immediate: true });
+      else window.scrollTo(0, 0);
+    });
+    return () => cancelAnimationFrame(id);
+  }, [pathname, hash]);
 
   return <>{children}</>;
 }

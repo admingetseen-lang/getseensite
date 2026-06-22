@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Reveal, Stagger } from "../components/Reveal";
 import { SectionHeading } from "../components/SectionHeading";
 import { fadeUp } from "../lib/motion";
@@ -52,14 +53,14 @@ export function Services() {
                 ))}
               </ul>
 
-              <a
-                href="/leistungen"
+              <Link
+                to="/leistungen"
                 className="mt-8 inline-flex items-center gap-2 font-medium text-accent"
                 data-cursor="grow"
               >
                 <span className="link-underline">Mehr erfahren</span>
                 <IconArrow className="h-5 w-5 transition-transform duration-300 ease-reveal group-hover:translate-x-1" />
-              </a>
+              </Link>
 
               {/* hover wash */}
               <div className="pointer-events-none absolute inset-0 -z-0 bg-gradient-to-br from-accent-soft/0 to-accent-soft/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:from-accent-soft/30" />

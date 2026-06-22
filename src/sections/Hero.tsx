@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { HeroBackground } from "../components/HeroBackground";
 import { EASE_REVEAL } from "../lib/motion";
 import { EXTERNAL } from "../lib/site";
@@ -81,9 +82,9 @@ export function Hero() {
             <a href={EXTERNAL.liveDemo} className="btn-primary" data-cursor="grow">
               Demo erstellen
             </a>
-            <a href="/leistungen" className="btn-ghost" data-cursor="grow">
+            <Link to="/leistungen" className="btn-ghost" data-cursor="grow">
               Mehr erfahren
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>

@@ -48,7 +48,9 @@ export function About() {
                   </span>
                 </div>
               </div>
-              <span className="font-display text-lg font-semibold">{m.role}</span>
+              <span className="font-display text-base font-semibold leading-tight hyphens-auto" lang="de">
+                {m.role}
+              </span>
               <span className="mt-1 text-sm text-ink/55">{m.focus}</span>
             </Reveal>
           ))}
