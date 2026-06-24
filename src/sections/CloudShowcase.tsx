@@ -1,4 +1,5 @@
 import { Reveal, Stagger } from "../components/Reveal";
+import { Logo } from "../components/Logo";
 import { CountUp } from "../components/CountUp";
 import { CloudGraphic } from "../components/CloudGraphic";
 import { fadeUp, fadeUpLg } from "../lib/motion";
@@ -42,24 +43,33 @@ export function CloudShowcase() {
             <Reveal>
               <span className="eyebrow !text-bg/60">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                Flagship · GetSeen Cloud
+                Eigenständiges Produkt
               </span>
             </Reveal>
-            <Reveal variants={fadeUpLg} delay={0.05}>
-              <h2 className="mt-5 font-display text-display-sm text-bg">
+            <Reveal delay={0.04}>
+              <div className="mt-5">
+                <Logo variant="cloud" className="[&_span]:!text-bg" />
+              </div>
+            </Reveal>
+            <Reveal variants={fadeUpLg} delay={0.08}>
+              <h2 className="mt-6 font-display text-display-sm text-bg">
                 European-first Cloud — <span className="text-accent">Made in Germany.</span>
               </h2>
             </Reveal>
-            <Reveal delay={0.1}>
+            <Reveal delay={0.12}>
               <p className="mt-4 font-display text-xl text-bg/80">
                 Deine Daten. Deine Kontrolle.
               </p>
             </Reveal>
-            <Reveal delay={0.15}>
+            <Reveal delay={0.16}>
               <p className="mt-5 max-w-prose text-lg text-bg/60">
-                Die DSGVO-konforme Alternative: sicherer Cloud-Speicher,
-                KI-Workloads und Compute-Infrastruktur mit deutschen
-                Datenschutzstandards.
+                Sicherer Cloud-Speicher, KI-Workloads und Compute-Infrastruktur mit
+                deutschen Datenschutzstandards — die DSGVO-konforme Alternative.
+                <span className="mt-2 block text-base text-bg/45">
+                  Ein separates Produkt von GetSeen — unabhängig von unseren
+                  Web-Leistungen. Kein Website-Baukasten, sondern Speicher &amp;
+                  Infrastruktur.
+                </span>
               </p>
             </Reveal>
             <Reveal delay={0.2}>
