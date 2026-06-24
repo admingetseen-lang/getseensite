@@ -9,9 +9,19 @@
  */
 const base = import.meta.env.BASE_URL; // "/" or "/getseensite/"
 
+// Prefer an uploaded PNG (public/brand/*.png); gracefully fall back to the
+// placeholder SVG if the PNG isn't present yet.
 const MARKS = {
-  getseen: { src: `${base}brand/getseen.svg`, alt: "GetSeen Logo" },
-  cloud: { src: `${base}brand/getseen-cloud.svg`, alt: "GetSeen Cloud Logo" },
+  getseen: {
+    src: `${base}brand/getseen.png`,
+    fallback: `${base}brand/getseen.svg`,
+    alt: "GetSeen Logo",
+  },
+  cloud: {
+    src: `${base}brand/getseen-cloud.png`,
+    fallback: `${base}brand/getseen-cloud.svg`,
+    alt: "GetSeen Cloud Logo",
+  },
 } as const;
 
 export function Logo({
@@ -31,9 +41,15 @@ export function Logo({
         alt={mark.alt}
         width={variant === "cloud" ? 34 : 38}
         height={variant === "cloud" ? 34 : 30}
-        className={variant === "cloud" ? "h-8 w-8" : "h-7 w-auto"}
+        className={variant === "cloud" ? "h-8 w-8 object-contain" : "h-8 w-auto object-contain"}
         loading="eager"
         decoding="async"
+        onError={(e) => {
+          // PNG not uploaded yet → use the placeholder SVG.
+          if (e.currentTarget.src !== mark.fallback) {
+            e.currentTarget.src = mark.fallback;
+          }
+        }}
       />
       {showWord && (
         <span className="font-display text-xl font-semibold tracking-tight text-ink">
