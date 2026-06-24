@@ -63,10 +63,15 @@ needs an **SPA fallback** (all routes → `index.html`). Configs are included:
   or run `vercel`.
 - **Netlify** — `netlify.toml` + `public/_redirects`. Set build `npm run build`,
   publish `dist`, or drag-and-drop the `dist/` folder.
-- **GitHub Pages / static host** — `npm run build` also writes `dist/404.html`
-  (a copy of `index.html`) so deep links resolve. Serve the contents of `dist/`.
-  > Asset paths are absolute (`/assets/…`), so deploy at a **domain root**
-  > (custom domain). For a project subpath, set Vite `base` accordingly.
+- **GitHub Pages** — automated via `.github/workflows/deploy-pages.yml`. It builds
+  with `BASE_PATH=/<repo>/` so assets resolve under the project subpath, and
+  client routing uses that base (`BrowserRouter basename`). `dist/404.html` +
+  `.nojekyll` make deep links work. **One-time setup:** repo → Settings → Pages →
+  *Source: GitHub Actions*. The workflow then runs on push and publishes to
+  `https://<owner>.github.io/<repo>/`.
+  > The committed `dist/` is built at root (`/`) for custom-domain / Netlify /
+  > Vercel; GitHub Pages is rebuilt in CI with the subpath base. To deploy
+  > elsewhere at a subpath, set `BASE_PATH` when building.
 
 Quick local check of the production build: `npm run preview`.
 
