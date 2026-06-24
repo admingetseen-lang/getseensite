@@ -54,6 +54,22 @@ Primary **Clash Display** + **Satoshi** (Fontshare), with **Space Grotesk** +
 - Custom dot cursor — auto-disabled on touch; global toggle `CUSTOM_CURSOR` in `App.tsx`.
 - Semantic HTML, keyboard-navigable, visible focus rings, strong contrast.
 
+## Deploy
+
+The built site is committed under `dist/` and is a single-page app, so the host
+needs an **SPA fallback** (all routes → `index.html`). Configs are included:
+
+- **Vercel** — `vercel.json` (rewrites all paths to `index.html`). Import the repo
+  or run `vercel`.
+- **Netlify** — `netlify.toml` + `public/_redirects`. Set build `npm run build`,
+  publish `dist`, or drag-and-drop the `dist/` folder.
+- **GitHub Pages / static host** — `npm run build` also writes `dist/404.html`
+  (a copy of `index.html`) so deep links resolve. Serve the contents of `dist/`.
+  > Asset paths are absolute (`/assets/…`), so deploy at a **domain root**
+  > (custom domain). For a project subpath, set Vite `base` accordingly.
+
+Quick local check of the production build: `npm run preview`.
+
 ## Drop-in assets (optional)
 
 - **Hero video:** add `public/media/hero.mp4` and set `HERO_VIDEO` in

@@ -1,0 +1,12 @@
+{
+  "name": "GetSeen",
+  "short_name": "GetSeen",
+  "description": "Online sichtbar und effizient werden — modernes KI-Webdesign, SEO und Automatisierung für lokale Unternehmen.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF8",
+  "theme_color": "#1F3BFF",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

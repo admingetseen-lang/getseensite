@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.getseen.shop/</loc><priority>1.0</priority></url>
+  <url><loc>https://www.getseen.shop/leistungen</loc><priority>0.8</priority></url>
+  <url><loc>https://www.getseen.shop/anfrage</loc><priority>0.8</priority></url>
+  <url><loc>https://www.getseen.shop/kontakt</loc><priority>0.7</priority></url>
+  <url><loc>https://www.getseen.shop/impressum</loc><priority>0.3</priority></url>
+  <url><loc>https://www.getseen.shop/datenschutz</loc><priority>0.3</priority></url>
+  <url><loc>https://www.getseen.shop/agb</loc><priority>0.3</priority></url>
+  <url><loc>https://www.getseen.shop/widerruf</loc><priority>0.3</priority></url>
+</urlset>
