@@ -30,3 +30,23 @@ export const staggerParent = (stagger = 0.08, delayChildren = 0): Variants => ({
 
 /** Standard viewport config for whileInView reveals. */
 export const viewportOnce = { once: true, margin: "-10%" } as const;
+
+// ---------------------------------------------------------------------------
+// Canonical motion convention (see CLAUDE.md → "Motion & Animation").
+// Prefer these primitives + <Reveal> / <TextReveal> for all new animation work.
+// ---------------------------------------------------------------------------
+
+export const ease = {
+  out: [0.16, 1, 0.3, 1] as [number, number, number, number], // expo-out — schneller Start, langes Settle
+  inOut: [0.65, 0, 0.35, 1] as [number, number, number, number], // für Hover/Loops
+};
+
+export const reveal: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: ease.out } },
+};
+
+export const stagger: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.07, delayChildren: 0.05 } },
+};

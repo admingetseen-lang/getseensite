@@ -1,33 +1,39 @@
-import { motion, type Variants } from "framer-motion";
-import { fadeUp, staggerParent, viewportOnce } from "../lib/motion";
-import { usePrefersReducedMotion } from "../lib/useMediaPreferences";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
+import type { ReactNode } from "react";
+import { reveal, staggerParent, viewportOnce } from "@/lib/motion";
 
-type RevealProps = {
-  children: React.ReactNode;
-  className?: string;
-  /** Delay before this element reveals (s). */
-  delay?: number;
-  /** Override the default fade-up variants. */
-  variants?: Variants;
-  /** Render as a different element (default div). */
-  as?: "div" | "section" | "li" | "span" | "article" | "header" | "footer";
-};
+type RevealTag =
+  | "div"
+  | "section"
+  | "li"
+  | "span"
+  | "article"
+  | "header"
+  | "footer";
 
 /**
- * Scroll-triggered fade + translate-up reveal.
- * When reduced motion is requested, content renders immediately with no transform.
+ * Canonical scroll-reveal primitive (see CLAUDE.md → "Motion & Animation").
+ * Defaults to the `reveal` variant (opacity + 20px y, expo-out, once).
+ * Optional `variants`/`delay`/`as` are kept for backward compatibility — the
+ * `whileInView={["show","visible"]}` target matches either variant convention.
  */
 export function Reveal({
   children,
   className,
-  delay = 0,
-  variants = fadeUp,
+  delay,
+  variants,
   as = "div",
-}: RevealProps) {
-  const reduced = usePrefersReducedMotion();
+}: {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+  variants?: Variants;
+  as?: RevealTag;
+}) {
+  const reduce = useReducedMotion();
   const MotionTag = motion[as];
 
-  if (reduced) {
+  if (reduce) {
     const Tag = as as keyof JSX.IntrinsicElements;
     return <Tag className={className}>{children}</Tag>;
   }
@@ -35,29 +41,20 @@ export function Reveal({
   return (
     <MotionTag
       className={className}
-      variants={variants}
+      variants={variants ?? reveal}
       initial="hidden"
-      whileInView="visible"
-      viewport={viewportOnce}
-      transition={{ delay }}
+      whileInView={["show", "visible"]}
+      viewport={{ once: true, margin: "-10% 0px" }}
+      transition={delay !== undefined ? { delay } : undefined}
     >
       {children}
     </MotionTag>
   );
 }
 
-type StaggerProps = {
-  children: React.ReactNode;
-  className?: string;
-  /** Seconds between each child's reveal. */
-  stagger?: number;
-  delayChildren?: number;
-  as?: "div" | "ul" | "section";
-};
-
 /**
  * Parent wrapper that staggers the reveal of its <Reveal> children.
- * Children should use the fade-up (or compatible) variants.
+ * Kept for existing sections; new code can also use the `stagger` variant.
  */
 export function Stagger({
   children,
@@ -65,11 +62,17 @@ export function Stagger({
   stagger = 0.1,
   delayChildren = 0,
   as = "div",
-}: StaggerProps) {
-  const reduced = usePrefersReducedMotion();
+}: {
+  children: ReactNode;
+  className?: string;
+  stagger?: number;
+  delayChildren?: number;
+  as?: "div" | "ul" | "section";
+}) {
+  const reduce = useReducedMotion();
   const MotionTag = motion[as];
 
-  if (reduced) {
+  if (reduce) {
     const Tag = as as keyof JSX.IntrinsicElements;
     return <Tag className={className}>{children}</Tag>;
   }
@@ -79,7 +82,7 @@ export function Stagger({
       className={className}
       variants={staggerParent(stagger, delayChildren)}
       initial="hidden"
-      whileInView="visible"
+      whileInView={["show", "visible"]}
       viewport={viewportOnce}
     >
       {children}
