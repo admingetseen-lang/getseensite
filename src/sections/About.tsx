@@ -1,4 +1,5 @@
 import { Reveal, Stagger } from "../components/Reveal";
+import { TextReveal } from "../components/TextReveal";
 import { fadeUp } from "../lib/motion";
 
 const TEAM = [
@@ -15,13 +16,9 @@ export function About() {
           <Reveal>
             <span className="eyebrow">Über uns</span>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h2 className="mt-4 text-display-sm">
-              Ein junges Team,
-              <br />
-              das anpackt.
-            </h2>
-          </Reveal>
+          <h2 className="mt-4 text-display-sm">
+            <TextReveal lines={["Ein junges Team,", "das anpackt."]} />
+          </h2>
           <Reveal delay={0.1}>
             <p className="mt-6 max-w-prose text-lg text-ink/70">
               Wir sind 3 Studenten aus den Bereichen{" "}

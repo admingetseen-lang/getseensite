@@ -31,7 +31,7 @@ export function Benefits() {
     <section id="vorteile" className="shell scroll-mt-24 py-section">
       <SectionHeading
         eyebrow="Vorteile"
-        title="Warum Unternehmen mit uns arbeiten."
+        titleLines={["Warum Unternehmen", "mit uns arbeiten."]}
       />
 
       <Stagger className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>

@@ -25,7 +25,7 @@ export function Services() {
       <div className="shell">
         <SectionHeading
           eyebrow="Leistungen"
-          title="Alles, um online sichtbar zu werden."
+          titleLines={["Alles, um online", "sichtbar zu werden."]}
           intro="Zwei Schwerpunkte, ein Ziel: mehr Anfragen für Ihr Unternehmen — mit modernem Design und KI, die Ihnen Arbeit abnimmt."
         />
 

@@ -1,5 +1,5 @@
 import { Reveal } from "../components/Reveal";
-import { fadeUpLg } from "../lib/motion";
+import { TextReveal } from "../components/TextReveal";
 import { EXTERNAL } from "../lib/site";
 import { IconArrow } from "../components/Icons";
 
@@ -14,11 +14,9 @@ export function DemoCTA() {
         <Reveal>
           <span className="eyebrow">Live Demo</span>
         </Reveal>
-        <Reveal variants={fadeUpLg} delay={0.05}>
-          <h2 className="mx-auto mt-5 max-w-2xl text-display-sm">
-            Sehen Sie Ihre neue Website — in Minuten.
-          </h2>
-        </Reveal>
+        <h2 className="mx-auto mt-5 max-w-2xl text-display-sm">
+          <TextReveal lines={["Sehen Sie Ihre neue", "Website — in Minuten."]} />
+        </h2>
         <Reveal delay={0.1}>
           <p className="mx-auto mt-5 max-w-prose text-lg text-ink/65">
             Erstellen Sie eine kostenlose Live-Demo und erleben Sie, wie Ihr
