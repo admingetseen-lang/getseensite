@@ -25,3 +25,7 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Server-seitiger API-Key (niemals committen)
+public/api/config.php
+dist/api/config.php

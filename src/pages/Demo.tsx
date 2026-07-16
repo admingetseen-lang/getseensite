@@ -5,7 +5,11 @@ import { Reveal } from "@/components/Reveal";
 import { ease } from "@/lib/motion";
 import { IconArrow, IconCheck } from "@/components/Icons";
 
-const API_URL = "https://getseenchatai.jolly-field-a969.workers.dev";
+// Same-Origin auf getseen.shop (Hostinger, PHP-Endpoint); von Vorschau-Domains
+// aus wird der Endpoint auf der Hauptdomain aufgerufen (CORS dort erlaubt).
+const API_URL = window.location.hostname.endsWith("getseen.shop")
+  ? "/api/demo.php"
+  : "https://www.getseen.shop/api/demo.php";
 
 const TEMPLATE_LINES = [
   "Firma/Name:",
@@ -103,7 +107,7 @@ export default function Demo() {
     previewRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
 
     abortRef.current = new AbortController();
-    const timeout = window.setTimeout(() => abortRef.current?.abort(), 90_000);
+    const timeout = window.setTimeout(() => abortRef.current?.abort(), 250_000);
     try {
       const res = await fetch(API_URL, {
         method: "POST",
@@ -122,7 +126,7 @@ export default function Demo() {
       stopTimers();
       console.error("[Demo-Generator]", err);
       if (err instanceof DOMException && err.name === "AbortError") {
-        setErrorMsg("Zeitüberschreitung (90 s) — der Generator braucht gerade zu lange. Bitte erneut versuchen.");
+        setErrorMsg("Zeitüberschreitung — der Generator braucht gerade zu lange. Bitte erneut versuchen.");
       } else if (err instanceof TypeError) {
         setErrorMsg(
           "Der Demo-Server hat die Anfrage von dieser Domain blockiert (CORS) oder ist nicht erreichbar. Details: F12 → Konsole."
