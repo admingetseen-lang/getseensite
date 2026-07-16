@@ -3,6 +3,7 @@ import { ScrollVideo } from "../sections/ScrollVideo";
 import { About } from "../sections/About";
 import { Services } from "../sections/Services";
 import { Benefits } from "../sections/Benefits";
+import { WebsiteCheck } from "../sections/WebsiteCheck";
 import { CloudShowcase } from "../sections/CloudShowcase";
 import { DemoCTA } from "../sections/DemoCTA";
 
@@ -14,6 +15,7 @@ export default function Home() {
       <About />
       <Services />
       <Benefits />
+      <WebsiteCheck />
       <CloudShowcase />
       <DemoCTA />
     </>

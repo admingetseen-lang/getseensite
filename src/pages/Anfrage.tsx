@@ -141,7 +141,7 @@ export default function Anfrage() {
 
           {/* Aside */}
           <Reveal delay={0.1}>
-            <div className="rounded-3xl border border-line bg-paper p-8">
+            <div className="glass p-8">
               <h2 className="font-display text-xl font-semibold">Lieber direkt?</h2>
               <p className="mt-3 text-ink/65">
                 Sie erreichen uns auch telefonisch oder per E-Mail.

@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 
 // Sub-routes are code-split so the landing page ships a leaner bundle.
 const Leistungen = lazy(() => import("./pages/Leistungen"));
+const Demo = lazy(() => import("./pages/Demo"));
 const Anfrage = lazy(() => import("./pages/Anfrage"));
 const Kontakt = lazy(() => import("./pages/Kontakt"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -32,6 +33,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/leistungen" element={<Leistungen />} />
+            <Route path="/demo" element={<Demo />} />
             <Route path="/anfrage" element={<Anfrage />} />
             <Route path="/kontakt" element={<Kontakt />} />
             <Route path="/impressum" element={<Impressum />} />

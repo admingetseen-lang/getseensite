@@ -23,6 +23,7 @@ export const CONTACT = {
 export const NAV_LINKS = [
   { label: "Über uns", href: "/#ueber-uns" },
   { label: "Leistungen", href: "/leistungen" },
+  { label: "Live-Demo", href: "/demo" },
   { label: "GetSeen Cloud", href: "/#cloud" },
   { label: "Anfrage", href: "/anfrage" },
   { label: "Kontakt", href: "/kontakt" },

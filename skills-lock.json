@@ -13,6 +13,12 @@
       "skillPath": "skills/apple-design/SKILL.md",
       "computedHash": "8b94db67cb9edaad5f1501010804caa610131f1d2dfda0a27664b2e858deade3"
     },
+    "deslop": {
+      "source": "fumiya-kume/claude-code",
+      "sourceType": "github",
+      "skillPath": "deslop/skills/deslop/SKILL.md",
+      "computedHash": "fd69e2f4f03e1cf4bc1afd873daeb78fafa80744a8afaee9c272fea1f878dc3b"
+    },
     "emil-design-eng": {
       "source": "emilkowalski/skill",
       "sourceType": "github",

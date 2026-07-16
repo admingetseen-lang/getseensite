@@ -21,7 +21,8 @@ const SERVICES = [
 
 export function Services() {
   return (
-    <section id="leistungen" className="scroll-mt-24 bg-paper/60 py-section">
+    <section id="leistungen" className="relative scroll-mt-24 overflow-hidden py-section">
+      <div aria-hidden className="glow-field" />
       <div className="shell">
         <SectionHeading
           eyebrow="Leistungen"
@@ -34,7 +35,7 @@ export function Services() {
             <Reveal
               key={s.title}
               variants={fadeUp}
-              className="group relative flex flex-col overflow-hidden rounded-3xl border border-line bg-bg p-8 transition-colors duration-300 ease-reveal hover:border-accent/40 sm:p-10"
+              className="glass glass-hover group relative flex flex-col p-8 sm:p-10"
             >
               <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-soft text-accent transition-transform duration-300 ease-reveal group-hover:scale-105">
                 <s.icon />
@@ -46,7 +47,7 @@ export function Services() {
                 {s.points.map((p) => (
                   <li
                     key={p}
-                    className="rounded-full border border-line bg-paper px-3 py-1.5 text-sm text-ink/70"
+                    className="rounded-full border border-white/60 bg-white/50 px-3 py-1.5 text-sm text-ink/70 backdrop-blur-sm"
                   >
                     {p}
                   </li>
@@ -62,8 +63,6 @@ export function Services() {
                 <IconArrow className="h-5 w-5 transition-transform duration-300 ease-reveal group-hover:translate-x-1" />
               </Link>
 
-              {/* hover wash */}
-              <div className="pointer-events-none absolute inset-0 -z-0 bg-gradient-to-br from-accent-soft/0 to-accent-soft/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:from-accent-soft/30" />
             </Reveal>
           ))}
         </Stagger>

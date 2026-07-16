@@ -35,15 +35,16 @@ export function About() {
             <Reveal
               key={m.role}
               variants={fadeUp}
-              className="group flex flex-col rounded-3xl border border-line bg-paper p-6"
+              className="glass group flex flex-col p-6"
             >
-              {/* Team photo placeholder — drop a real photo in later */}
-              <div className="relative mb-5 aspect-[4/5] overflow-hidden rounded-2xl bg-gradient-to-br from-accent-soft to-paper">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-display text-4xl text-accent/30">
-                    {m.role.charAt(0)}
-                  </span>
-                </div>
+              {/* Team photo slot — drop a real photo in later */}
+              <div className="relative mb-5 aspect-[4/5] overflow-hidden rounded-2xl bg-gradient-to-br from-accent-soft/80 to-white/40">
+                <img
+                  src={`${import.meta.env.BASE_URL}brand/getseen.png`}
+                  alt=""
+                  className="absolute inset-0 m-auto w-1/2 opacity-25"
+                  loading="lazy"
+                />
               </div>
               <span className="font-display text-base font-semibold leading-tight hyphens-auto" lang="de">
                 {m.role}

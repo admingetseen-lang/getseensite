@@ -1,7 +1,7 @@
+import { Link } from "react-router-dom";
 import { PageHeader } from "../components/PageHeader";
 import { Reveal, Stagger } from "../components/Reveal";
 import { fadeUp } from "../lib/motion";
-import { EXTERNAL } from "../lib/site";
 import {
   IconWeb,
   IconSeo,
@@ -55,7 +55,7 @@ export default function Leistungen() {
             <Reveal
               key={d.title}
               variants={fadeUp}
-              className="group rounded-3xl border border-line bg-paper p-8 transition-colors duration-300 ease-reveal hover:border-accent/40"
+              className="group glass glass-hover p-8"
             >
               <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-soft text-accent transition-transform duration-300 ease-reveal group-hover:scale-105">
                 <d.icon />
@@ -97,14 +97,14 @@ export default function Leistungen() {
             </h2>
             <p className="mt-3 text-bg/60">Starten Sie mit einer kostenlosen Live-Demo.</p>
           </div>
-          <a
-            href={EXTERNAL.liveDemo}
+          <Link
+            to="/demo"
             className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-white transition-colors duration-300 ease-reveal hover:bg-accent-ink"
             data-cursor="grow"
           >
             Demo erstellen
             <IconArrow className="h-5 w-5 transition-transform duration-300 ease-reveal group-hover:translate-x-1" />
-          </a>
+          </Link>
         </Reveal>
       </section>
     </>

@@ -28,18 +28,22 @@ const BENEFITS = [
 
 export function Benefits() {
   return (
-    <section id="vorteile" className="shell scroll-mt-24 py-section">
+    <section id="vorteile" className="relative scroll-mt-24 overflow-hidden py-section">
+      <div aria-hidden className="glow-field">
+        <div className="absolute inset-0 bg-gradient-to-b from-bg via-accent-soft/40 to-bg" />
+      </div>
+      <div className="shell">
       <SectionHeading
         eyebrow="Vorteile"
         titleLines={["Warum Unternehmen", "mit uns arbeiten."]}
       />
 
-      <Stagger className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
+      <Stagger className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
         {BENEFITS.map((b, i) => (
           <Reveal
             key={b.title}
             variants={fadeUp}
-            className="group flex flex-col bg-bg p-8 transition-colors duration-300 ease-reveal hover:bg-paper"
+            className="glass glass-hover group flex flex-col p-8"
           >
             <span className="font-display text-sm font-medium text-accent">
               {String(i + 1).padStart(2, "0")}
@@ -52,7 +56,7 @@ export function Benefits() {
         {/* trailing CTA tile filling the grid */}
         <Reveal
           variants={fadeUp}
-          className="flex flex-col justify-center bg-accent p-8 text-white"
+          className="flex flex-col justify-center rounded-3xl border border-white/20 bg-accent/90 p-8 text-white shadow-[0_8px_32px_rgba(31,59,255,0.35)] backdrop-blur-xl"
         >
           <h3 className="font-display text-xl font-semibold">
             Bereit, sichtbar zu werden?
@@ -66,6 +70,7 @@ export function Benefits() {
           </Link>
         </Reveal>
       </Stagger>
+      </div>
     </section>
   );
 }

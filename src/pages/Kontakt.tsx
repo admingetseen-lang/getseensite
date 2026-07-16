@@ -50,7 +50,9 @@ export default function Kontakt() {
         intro="Ob Frage oder konkretes Vorhaben — wir freuen uns, von Ihnen zu hören."
       />
 
-      <section className="shell pb-section">
+      <section className="relative overflow-hidden pb-section">
+        <div aria-hidden className="glow-field" />
+        <div className="shell">
         <Stagger className="grid gap-4 sm:grid-cols-3" stagger={0.1}>
           {CARDS.map((c) => (
             <Reveal key={c.label} variants={fadeUp}>
@@ -58,7 +60,7 @@ export default function Kontakt() {
                 href={c.href}
                 target={c.label === "Adresse" ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                className="group flex h-full flex-col rounded-3xl border border-line bg-paper p-7 transition-colors duration-300 ease-reveal hover:border-accent/40"
+                className="glass glass-hover group flex h-full flex-col p-7"
                 data-cursor="grow"
               >
                 <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-soft text-accent transition-transform duration-300 ease-reveal group-hover:scale-105">
@@ -73,7 +75,7 @@ export default function Kontakt() {
 
         <div className="mt-6 grid gap-4 lg:grid-cols-[1.4fr_1fr]">
           {/* Map embed with styled fallback (shown if the embed is blocked) */}
-          <Reveal className="relative h-[320px] overflow-hidden rounded-3xl border border-line bg-paper">
+          <Reveal className="glass relative h-[320px] overflow-hidden !p-0">
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center">
               <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-soft text-accent">
                 <IconPin />
@@ -100,7 +102,7 @@ export default function Kontakt() {
           </Reveal>
 
           {/* Socials */}
-          <Reveal delay={0.08} className="rounded-3xl border border-line bg-paper p-8">
+          <Reveal delay={0.08} className="glass p-8">
             <h2 className="font-display text-xl font-semibold">Folgen Sie uns</h2>
             <ul className="mt-5 space-y-2">
               {SOCIALS.map((s) => (
@@ -122,6 +124,7 @@ export default function Kontakt() {
               ))}
             </ul>
           </Reveal>
+        </div>
         </div>
       </section>
     </>

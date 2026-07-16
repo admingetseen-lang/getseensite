@@ -92,12 +92,12 @@ export function CloudShowcase() {
         </div>
 
         {/* Stat counters */}
-        <Stagger className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-bg/10 bg-bg/10 sm:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
+        <Stagger className="mt-16 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
           {STATS.map((s) => (
             <Reveal
               key={s.label}
               variants={fadeUp}
-              className="bg-ink p-7"
+              className="glass-dark p-7"
             >
               <div className="font-display text-4xl font-semibold text-bg">
                 {s.kind === "count" ? (
@@ -117,7 +117,7 @@ export function CloudShowcase() {
             <Reveal
               key={f.title}
               variants={fadeUp}
-              className="group rounded-3xl border border-bg/10 bg-bg/[0.04] p-7 transition-colors duration-300 ease-reveal hover:border-accent/40 hover:bg-bg/[0.07]"
+              className="glass-dark glass-dark-hover group p-7"
             >
               <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/15 text-accent transition-transform duration-300 ease-reveal group-hover:scale-105">
                 <f.icon />

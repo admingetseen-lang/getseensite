@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { HeroBackground } from "../components/HeroBackground";
 import { EASE_REVEAL } from "../lib/motion";
-import { EXTERNAL } from "../lib/site";
 import { usePrefersReducedMotion } from "../lib/useMediaPreferences";
 
 const HEADLINE_LINES = ["Online sichtbar", "und effizient werden"];
@@ -79,9 +78,9 @@ export function Hero() {
             animate={reduced ? undefined : "visible"}
             transition={{ delay: 0.62 }}
           >
-            <a href={EXTERNAL.liveDemo} className="btn-primary" data-cursor="grow">
+            <Link to="/demo" className="btn-primary" data-cursor="grow">
               Demo erstellen
-            </a>
+            </Link>
             <Link to="/leistungen" className="btn-ghost" data-cursor="grow">
               Mehr erfahren
             </Link>

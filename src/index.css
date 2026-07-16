@@ -76,6 +76,44 @@
            duration-300 ease-reveal hover:border-ink/40 hover:bg-paper;
   }
 
+  /* Glassmorphism panels — light surfaces sit on colour fields, dark ones on ink */
+  .glass {
+    @apply rounded-3xl border border-white/50 bg-white/55 backdrop-blur-xl;
+    box-shadow:
+      0 8px 32px rgba(14, 14, 14, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+  .glass-hover {
+    @apply transition-[border-color,background-color] duration-300 ease-reveal hover:border-accent/40 hover:bg-white/70;
+  }
+  .glass-dark {
+    @apply rounded-3xl border border-white/10 bg-white/[0.06] backdrop-blur-xl;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+  .glass-dark-hover {
+    @apply transition-[border-color,background-color] duration-300 ease-reveal hover:border-accent/50 hover:bg-white/10;
+  }
+
+  /* Soft brand-colour field to sit behind glass panels */
+  .glow-field {
+    @apply pointer-events-none absolute inset-0 -z-10;
+  }
+  .glow-field::before,
+  .glow-field::after {
+    content: "";
+    @apply absolute h-96 w-96 rounded-full blur-3xl;
+  }
+  .glow-field::before {
+    @apply -left-24 top-1/4;
+    background: rgba(124, 92, 255, 0.22);
+  }
+  .glow-field::after {
+    @apply -right-24 bottom-1/4;
+    background: rgba(54, 182, 255, 0.22);
+  }
+
   /* Animated underline for inline links */
   .link-underline {
     @apply relative inline-block;

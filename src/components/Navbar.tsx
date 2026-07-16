@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Logo } from "./Logo";
-import { NAV_LINKS, EXTERNAL } from "../lib/site";
+import { NAV_LINKS } from "../lib/site";
 import { EASE_REVEAL } from "../lib/motion";
 
 export function Navbar() {
@@ -28,7 +28,7 @@ export function Navbar() {
         transition={{ duration: 0.6, ease: EASE_REVEAL, delay: 0.1 }}
         className={`mx-auto mt-3 flex max-w-shell items-center justify-between rounded-full px-4 py-2.5 transition-all duration-300 ease-reveal sm:px-5 ${
           scrolled
-            ? "border border-line/80 bg-bg/80 shadow-[0_8px_30px_rgba(14,14,14,0.06)] backdrop-blur-md"
+            ? "border border-white/50 bg-white/55 shadow-[0_8px_32px_rgba(14,14,14,0.08)] backdrop-blur-xl"
             : "border border-transparent bg-transparent"
         } w-[calc(100%-1.5rem)]`}
       >
@@ -50,9 +50,9 @@ export function Navbar() {
         </nav>
 
         <div className="hidden md:block">
-          <a href={EXTERNAL.liveDemo} className="btn-primary !px-5 !py-2.5 text-[0.95rem]" data-cursor="grow">
+          <Link to="/demo" className="btn-primary !px-5 !py-2.5 text-[0.95rem]" data-cursor="grow">
             Demo erstellen
-          </a>
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -90,7 +90,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: EASE_REVEAL }}
-            className="mx-3 mt-2 overflow-hidden rounded-3xl border border-line bg-bg/95 p-4 backdrop-blur-md md:hidden"
+            className="glass mx-3 mt-2 overflow-hidden !bg-white/80 p-4 md:hidden"
             aria-label="Mobile Navigation"
           >
             <ul className="flex flex-col">
@@ -98,16 +98,16 @@ export function Navbar() {
                 <li key={l.href}>
                   <Link
                     to={l.href}
-                    className="block rounded-xl px-3 py-3 text-lg font-medium text-ink/85 hover:bg-paper"
+                    className="block rounded-xl px-3 py-3 text-lg font-medium text-ink/85 hover:bg-white/70"
                   >
                     {l.label}
                   </Link>
                 </li>
               ))}
             </ul>
-            <a href={EXTERNAL.liveDemo} className="btn-primary mt-2 w-full">
+            <Link to="/demo" className="btn-primary mt-2 w-full">
               Demo erstellen
-            </a>
+            </Link>
           </motion.nav>
         )}
       </AnimatePresence>
