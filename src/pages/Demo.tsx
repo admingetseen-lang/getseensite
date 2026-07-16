@@ -43,6 +43,7 @@ export default function Demo() {
   const reduce = useReducedMotion();
   const [prompt, setPrompt] = useState("");
   const [phase, setPhase] = useState<"idle" | "loading" | "done" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
   const [progress, setProgress] = useState(0);
   const [stage, setStage] = useState(STAGES[0]);
   const [html, setHtml] = useState("");
@@ -110,15 +111,25 @@ export default function Demo() {
         body: JSON.stringify({ prompt }),
         signal: abortRef.current.signal,
       });
-      const j = await res.json();
-      if (!res.ok) throw new Error(j.error || "Fehler");
+      const j = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(j.error || `HTTP ${res.status}`);
       stopTimers();
       setProgress(100);
       setStage("Fertig ✓");
       setHtml(j.html || "");
       setPhase("done");
-    } catch {
+    } catch (err) {
       stopTimers();
+      console.error("[Demo-Generator]", err);
+      if (err instanceof DOMException && err.name === "AbortError") {
+        setErrorMsg("Zeitüberschreitung (90 s) — der Generator braucht gerade zu lange. Bitte erneut versuchen.");
+      } else if (err instanceof TypeError) {
+        setErrorMsg(
+          "Der Demo-Server hat die Anfrage von dieser Domain blockiert (CORS) oder ist nicht erreichbar. Details: F12 → Konsole."
+        );
+      } else {
+        setErrorMsg(err instanceof Error ? `Serverfehler: ${err.message}` : "Unbekannter Fehler — bitte erneut versuchen.");
+      }
       setPhase("error");
     } finally {
       window.clearTimeout(timeout);
@@ -243,7 +254,7 @@ export default function Demo() {
             )}
             {phase === "error" && (
               <p role="alert" className="mt-4 rounded-2xl border border-[#E5484D]/30 bg-[#E5484D]/10 px-4 py-2.5 text-sm text-[#FF9A9E]">
-                Das dauert gerade länger als gedacht — bitte noch einmal versuchen.
+                {errorMsg || "Das dauert gerade länger als gedacht — bitte noch einmal versuchen."}
               </p>
             )}
 
