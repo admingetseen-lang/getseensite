@@ -27,7 +27,12 @@ type CatKey = (typeof CATEGORIES)[number]["key"];
 type Scores = Record<CatKey, number>;
 type Result = { scores: Scores; overall: number; isGetSeen: boolean };
 
-const GETSEEN_ORIGINS = new Set(["https://www.getseen.shop", "https://getseen.shop"]);
+const GETSEEN_ORIGINS = new Set([
+  "https://www.getseen.shop",
+  "https://getseen.shop",
+  "https://www.getseen.cloud",
+  "https://getseen.cloud",
+]);
 
 /* Accept "example.com", "http://x.de/pfad" … and return "https://host". */
 function normalizeToHttpsOrigin(raw: string): string {
