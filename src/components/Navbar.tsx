@@ -28,7 +28,7 @@ export function Navbar() {
         transition={{ duration: 0.6, ease: EASE_REVEAL, delay: 0.1 }}
         className={`mx-auto mt-3 flex max-w-shell items-center justify-between rounded-full px-4 py-2.5 transition-all duration-300 ease-reveal sm:px-5 ${
           scrolled
-            ? "border border-white/50 bg-white/55 shadow-[0_8px_32px_rgba(14,14,14,0.08)] backdrop-blur-xl"
+            ? "border border-white/15 bg-white/[0.07] shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl"
             : "border border-transparent bg-transparent"
         } w-[calc(100%-1.5rem)]`}
       >
@@ -90,7 +90,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: EASE_REVEAL }}
-            className="glass mx-3 mt-2 overflow-hidden !bg-white/80 p-4 md:hidden"
+            className="glass mx-3 mt-2 overflow-hidden !bg-paper/95 p-4 md:hidden"
             aria-label="Mobile Navigation"
           >
             <ul className="flex flex-col">
@@ -98,7 +98,7 @@ export function Navbar() {
                 <li key={l.href}>
                   <Link
                     to={l.href}
-                    className="block rounded-xl px-3 py-3 text-lg font-medium text-ink/85 hover:bg-white/70"
+                    className="block rounded-xl px-3 py-3 text-lg font-medium text-ink/85 hover:bg-white/10"
                   >
                     {l.label}
                   </Link>

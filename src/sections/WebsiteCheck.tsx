@@ -141,7 +141,7 @@ export function WebsiteCheck() {
   return (
     <section id="website-check" className="relative scroll-mt-24 overflow-hidden py-section">
       <div aria-hidden className="glow-field">
-        <div className="absolute inset-0 bg-gradient-to-b from-bg via-accent-soft/60 to-bg" />
+        <div className="absolute inset-0 bg-gradient-to-b from-bg via-accent-soft/40 to-bg" />
       </div>
 
       <div className="shell">
@@ -166,7 +166,7 @@ export function WebsiteCheck() {
                 placeholder="z. B. example.com"
                 inputMode="url"
                 autoComplete="url"
-                className="min-w-0 flex-1 rounded-2xl border border-line bg-white/80 px-4 py-3 text-base outline-none transition-colors placeholder:text-ink/40 focus:border-accent"
+                className="min-w-0 flex-1 rounded-2xl border border-line bg-white/10 px-4 py-3 text-base outline-none transition-colors placeholder:text-ink/40 focus:border-accent"
               />
               <button
                 type="button"
@@ -180,7 +180,7 @@ export function WebsiteCheck() {
             </div>
 
             {error && (
-              <p role="alert" className="mt-3 rounded-2xl border border-[#E5484D]/30 bg-[#E5484D]/10 px-4 py-2.5 text-sm text-[#B22B30]">
+              <p role="alert" className="mt-3 rounded-2xl border border-[#E5484D]/30 bg-[#E5484D]/10 px-4 py-2.5 text-sm text-[#FF9A9E]">
                 {error}
               </p>
             )}
@@ -200,7 +200,7 @@ export function WebsiteCheck() {
                   {result ? `${result.overall}/10` : "—/10"}
                 </motion.span>
               </div>
-              <div className="h-2.5 overflow-hidden rounded-full bg-ink/10">
+              <div className="h-2.5 overflow-hidden rounded-full bg-white/10">
                 <motion.div
                   className="h-full rounded-full"
                   style={{ background: overallColor }}
@@ -215,7 +215,7 @@ export function WebsiteCheck() {
                   <div className="mb-1.5 flex justify-between text-xs text-ink/55">
                     <span>Bewertung läuft…</span>
                   </div>
-                  <div className="h-1.5 overflow-hidden rounded-full bg-ink/10">
+                  <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
                     <motion.div
                       className="h-full w-1/3 rounded-full bg-accent"
                       animate={reduce ? { x: 0 } : { x: ["-120%", "320%"] }}
@@ -264,7 +264,7 @@ export function WebsiteCheck() {
                         {score !== undefined ? `${score}/10` : "—/10"}
                       </span>
                     </div>
-                    <div className="h-2 overflow-hidden rounded-full bg-ink/10">
+                    <div className="h-2 overflow-hidden rounded-full bg-white/10">
                       <motion.div
                         className="h-full rounded-full"
                         style={{ background: color }}
@@ -283,13 +283,13 @@ export function WebsiteCheck() {
                 initial={reduce ? false : { opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: ease.out, delay: 0.4 }}
-                className="glass-dark mt-5 flex flex-wrap items-center justify-between gap-4 !bg-ink/90 p-6 text-bg"
+                className="glass-dark mt-5 flex flex-wrap items-center justify-between gap-4 p-6"
               >
                 <div>
                   <p className="font-display text-lg font-semibold">
                     Da geht mehr. Sehen Sie selbst, wie Ihre Seite aussehen könnte.
                   </p>
-                  <p className="mt-1 text-sm text-bg/60">
+                  <p className="mt-1 text-sm text-ink/60">
                     Kostenlose KI-Demo in Minuten — unverbindlich.
                   </p>
                 </div>

@@ -157,7 +157,7 @@ export default function Demo() {
 
       <section className="relative overflow-hidden pb-section">
         <div aria-hidden className="glow-field">
-          <div className="absolute inset-0 bg-gradient-to-b from-bg via-accent-soft/50 to-bg" />
+          <div className="absolute inset-0 bg-gradient-to-b from-bg via-accent-soft/40 to-bg" />
         </div>
 
         <div className="shell grid items-start gap-5 lg:grid-cols-[1fr_1.35fr]">
@@ -165,7 +165,7 @@ export default function Demo() {
           <Reveal className="glass p-6">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
               <span className="font-display text-lg font-semibold">Ihr Briefing</span>
-              <span className="rounded-full border border-white/60 bg-white/50 px-3 py-1 text-xs font-semibold text-ink/60">
+              <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-ink/60">
                 Felder: {done}/{TEMPLATE_LINES.length}
               </span>
             </div>
@@ -175,7 +175,7 @@ export default function Demo() {
               onChange={(e) => setPrompt(e.target.value)}
               rows={11}
               placeholder={"Firma/Name: …\nBranche: …"}
-              className="w-full resize-y rounded-2xl border border-line bg-white/80 p-4 text-base leading-relaxed outline-none transition-colors placeholder:text-ink/35 focus:border-accent"
+              className="w-full resize-y rounded-2xl border border-line bg-white/10 p-4 text-base leading-relaxed outline-none transition-colors placeholder:text-ink/35 focus:border-accent"
               aria-label="Demo-Briefing"
             />
 
@@ -192,8 +192,8 @@ export default function Demo() {
                     onClick={() => addLine(l)}
                     className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors duration-200 ${
                       ok
-                        ? "border-[#17B26A]/40 bg-[#17B26A]/10 text-[#0E7A47]"
-                        : "border-white/60 bg-white/50 text-ink/75 hover:border-accent/40"
+                        ? "border-[#17B26A]/40 bg-[#17B26A]/15 text-[#3DD68C]"
+                        : "border-white/15 bg-white/10 text-ink/75 hover:border-accent/50"
                     }`}
                   >
                     {ok && <IconCheck className="h-3.5 w-3.5" />}
@@ -213,15 +213,15 @@ export default function Demo() {
               >
                 {phase === "loading" ? "Wird erstellt…" : "Demo generieren"}
               </button>
-              <button type="button" onClick={() => setPrompt(EXAMPLE)} className="btn-ghost !bg-white/50">
+              <button type="button" onClick={() => setPrompt(EXAMPLE)} className="btn-ghost">
                 Beispiel
               </button>
               {missing > 0 && (
-                <button type="button" onClick={addMissing} className="btn-ghost !bg-white/50">
+                <button type="button" onClick={addMissing} className="btn-ghost">
                   Felder ergänzen ({missing})
                 </button>
               )}
-              <button type="button" onClick={reset} className="btn-ghost !bg-white/50">
+              <button type="button" onClick={reset} className="btn-ghost">
                 Reset
               </button>
             </div>
@@ -232,7 +232,7 @@ export default function Demo() {
                   <span>{stage}</span>
                   <span className="tabular-nums">{Math.round(progress)}%</span>
                 </div>
-                <div className="h-2 overflow-hidden rounded-full bg-ink/10">
+                <div className="h-2 overflow-hidden rounded-full bg-white/10">
                   <motion.div
                     className="h-full rounded-full bg-gradient-to-r from-[#7C5CFF] to-accent"
                     animate={{ width: `${progress}%` }}
@@ -242,7 +242,7 @@ export default function Demo() {
               </div>
             )}
             {phase === "error" && (
-              <p role="alert" className="mt-4 rounded-2xl border border-[#E5484D]/30 bg-[#E5484D]/10 px-4 py-2.5 text-sm text-[#B22B30]">
+              <p role="alert" className="mt-4 rounded-2xl border border-[#E5484D]/30 bg-[#E5484D]/10 px-4 py-2.5 text-sm text-[#FF9A9E]">
                 Das dauert gerade länger als gedacht — bitte noch einmal versuchen.
               </p>
             )}
@@ -254,7 +254,7 @@ export default function Demo() {
 
           {/* preview panel */}
           <Reveal delay={0.08} className="glass overflow-hidden !p-0" >
-            <div ref={previewRef} className="flex items-center justify-between border-b border-white/50 px-5 py-3.5 scroll-mt-28">
+            <div ref={previewRef} className="flex items-center justify-between border-b border-white/15 px-5 py-3.5 scroll-mt-28">
               <span className="font-display font-semibold">Vorschau</span>
               {phase === "done" && html && (
                 <button
@@ -269,17 +269,17 @@ export default function Demo() {
               )}
             </div>
 
-            <div className="relative min-h-[560px] bg-white/60">
+            <div className="relative min-h-[560px] bg-white/[0.04]">
               {phase === "loading" && (
                 <div className="absolute inset-0 z-10 p-5" aria-hidden>
                   <div className="flex gap-2.5">
-                    <div className="h-8 w-32 animate-pulse rounded-full bg-ink/10" />
-                    <div className="h-8 w-24 animate-pulse rounded-full bg-ink/10" />
-                    <div className="h-8 w-36 animate-pulse rounded-full bg-ink/10" />
+                    <div className="h-8 w-32 animate-pulse rounded-full bg-white/10" />
+                    <div className="h-8 w-24 animate-pulse rounded-full bg-white/10" />
+                    <div className="h-8 w-36 animate-pulse rounded-full bg-white/10" />
                   </div>
                   <div className="mt-5 grid grid-cols-2 gap-3">
                     {[0, 1, 2, 3].map((i) => (
-                      <div key={i} className="h-28 animate-pulse rounded-2xl bg-ink/10" />
+                      <div key={i} className="h-28 animate-pulse rounded-2xl bg-white/10" />
                     ))}
                   </div>
                   <p className="mt-6 text-sm text-ink/55">

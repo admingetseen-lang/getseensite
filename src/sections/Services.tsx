@@ -47,7 +47,7 @@ export function Services() {
                 {s.points.map((p) => (
                   <li
                     key={p}
-                    className="rounded-full border border-white/60 bg-white/50 px-3 py-1.5 text-sm text-ink/70 backdrop-blur-sm"
+                    className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-sm text-ink/70 backdrop-blur-sm"
                   >
                     {p}
                   </li>

@@ -68,7 +68,7 @@ export default function Leistungen() {
       </section>
 
       {/* Process */}
-      <section className="bg-paper/60 py-section">
+      <section className="relative overflow-hidden py-section">
         <div className="shell">
           <Reveal>
             <span className="eyebrow">Ablauf</span>
@@ -78,7 +78,7 @@ export default function Leistungen() {
           </Reveal>
           <Stagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
             {STEPS.map((s) => (
-              <Reveal key={s.n} variants={fadeUp} className="border-t border-ink/15 pt-5">
+              <Reveal key={s.n} variants={fadeUp} className="border-t border-white/15 pt-5">
                 <span className="font-display text-3xl font-semibold text-accent">{s.n}</span>
                 <h3 className="mt-3 font-display text-lg font-semibold">{s.t}</h3>
                 <p className="mt-2 text-ink/60">{s.d}</p>
@@ -90,12 +90,12 @@ export default function Leistungen() {
 
       {/* CTA */}
       <section className="shell py-section">
-        <Reveal className="flex flex-col items-start gap-6 rounded-[2rem] border border-line bg-ink p-10 text-bg sm:flex-row sm:items-center sm:justify-between sm:p-14">
+        <Reveal className="glass flex flex-col items-start gap-6 !rounded-[2rem] p-10 sm:flex-row sm:items-center sm:justify-between sm:p-14">
           <div>
             <h2 className="font-display text-2xl font-semibold sm:text-3xl">
               Lust auf einen Auftritt, der auffällt?
             </h2>
-            <p className="mt-3 text-bg/60">Starten Sie mit einer kostenlosen Live-Demo.</p>
+            <p className="mt-3 text-ink/60">Starten Sie mit einer kostenlosen Live-Demo.</p>
           </div>
           <Link
             to="/demo"

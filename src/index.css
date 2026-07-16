@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    color-scheme: light;
+    color-scheme: dark;
   }
 
   html {
@@ -78,13 +78,13 @@
 
   /* Glassmorphism panels — light surfaces sit on colour fields, dark ones on ink */
   .glass {
-    @apply rounded-3xl border border-white/50 bg-white/55 backdrop-blur-xl;
+    @apply rounded-3xl border border-white/15 bg-white/[0.07] backdrop-blur-xl;
     box-shadow:
-      0 8px 32px rgba(14, 14, 14, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      0 8px 32px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
   .glass-hover {
-    @apply transition-[border-color,background-color] duration-300 ease-reveal hover:border-accent/40 hover:bg-white/70;
+    @apply transition-[border-color,background-color] duration-300 ease-reveal hover:border-accent/50 hover:bg-white/[0.11];
   }
   .glass-dark {
     @apply rounded-3xl border border-white/10 bg-white/[0.06] backdrop-blur-xl;

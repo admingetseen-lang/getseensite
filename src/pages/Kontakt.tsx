@@ -111,7 +111,7 @@ export default function Kontakt() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center gap-3 rounded-xl px-3 py-2.5 text-ink/75 transition-colors duration-200 hover:bg-bg hover:text-ink"
+                    className="group flex items-center gap-3 rounded-xl px-3 py-2.5 text-ink/75 transition-colors duration-200 hover:bg-white/5 hover:text-ink"
                     data-cursor="grow"
                   >
                     <span className="text-accent">

@@ -77,7 +77,7 @@ export function ScrollVideo() {
     return (
       <section aria-label="GetSeen in Bewegung" className="relative">
         <div
-          className="relative flex min-h-[70vh] items-end overflow-hidden bg-ink"
+          className="relative flex min-h-[70vh] items-end overflow-hidden bg-bg"
           style={{
             backgroundImage: `url(${POSTER})`,
             backgroundSize: "cover",

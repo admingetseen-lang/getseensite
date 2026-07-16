@@ -10,13 +10,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: "#FAFAF8", // warm off-white background
-        ink: "#0E0E0E", // near-black text
-        paper: "#F2F1ED", // soft card tone
-        line: "#E4E3DE", // muted border
+        bg: "#0B0C11", // deep blue-black background (matches the glass footage)
+        ink: "#F3F4F8", // near-white text
+        paper: "#13141B", // raised dark surface
+        line: "#262833", // muted border
         accent: {
           DEFAULT: "#1F3BFF", // ultramarine — swap here for official brand hex
-          soft: "#E7EBFF",
+          soft: "#141B3D",
           ink: "#162BBF",
         },
       },

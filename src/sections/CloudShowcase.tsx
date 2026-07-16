@@ -36,10 +36,10 @@ const FEATURES = [
 
 export function CloudShowcase() {
   return (
-    <section id="cloud" className="relative scroll-mt-24 overflow-hidden bg-ink py-section text-bg">
+    <section id="cloud" className="relative scroll-mt-24 overflow-hidden py-section">
       {/* subtle glass-cube footage behind the content (hidden under reduced motion) */}
       <video
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16] motion-reduce:hidden"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.22] motion-reduce:hidden"
         src={`${import.meta.env.BASE_URL}media/cloud-loop.mp4`}
         autoPlay
         muted
@@ -47,36 +47,36 @@ export function CloudShowcase() {
         playsInline
         aria-hidden
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/60 via-transparent to-ink/60" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-bg/80 via-transparent to-bg/80" />
       <div className="shell relative">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <Reveal>
-              <span className="eyebrow !text-bg/60">
+              <span className="eyebrow !text-ink/60">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                 Eigenständiges Produkt
               </span>
             </Reveal>
             <Reveal delay={0.04}>
               <div className="mt-5">
-                <Logo variant="cloud" className="[&_span]:!text-bg" />
+                <Logo variant="cloud" className="[&_span]:!text-ink" />
               </div>
             </Reveal>
             <Reveal variants={fadeUpLg} delay={0.08}>
-              <h2 className="mt-6 font-display text-display-sm text-bg">
+              <h2 className="mt-6 font-display text-display-sm text-ink">
                 European-first Cloud — <span className="text-accent">Made in Germany.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.12}>
-              <p className="mt-4 font-display text-xl text-bg/80">
+              <p className="mt-4 font-display text-xl text-ink/80">
                 Deine Daten. Deine Kontrolle.
               </p>
             </Reveal>
             <Reveal delay={0.16}>
-              <p className="mt-5 max-w-prose text-lg text-bg/60">
+              <p className="mt-5 max-w-prose text-lg text-ink/60">
                 Sicherer Cloud-Speicher, KI-Workloads und Compute-Infrastruktur mit
                 deutschen Datenschutzstandards — die DSGVO-konforme Alternative.
-                <span className="mt-2 block text-base text-bg/45">
+                <span className="mt-2 block text-base text-ink/45">
                   Ein separates Produkt von GetSeen — unabhängig von unseren
                   Web-Leistungen. Kein Website-Baukasten, sondern Speicher &amp;
                   Infrastruktur.
@@ -110,14 +110,14 @@ export function CloudShowcase() {
               variants={fadeUp}
               className="glass-dark p-7"
             >
-              <div className="font-display text-4xl font-semibold text-bg">
+              <div className="font-display text-4xl font-semibold text-ink">
                 {s.kind === "count" ? (
                   <CountUp value={s.value} suffix={s.suffix} />
                 ) : (
                   <span className="text-accent">{s.text}</span>
                 )}
               </div>
-              <p className="mt-2 text-sm text-bg/55">{s.label}</p>
+              <p className="mt-2 text-sm text-ink/55">{s.label}</p>
             </Reveal>
           ))}
         </Stagger>
@@ -133,8 +133,8 @@ export function CloudShowcase() {
               <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/15 text-accent transition-transform duration-300 ease-reveal group-hover:scale-105">
                 <f.icon />
               </span>
-              <h3 className="mt-5 font-display text-lg font-semibold text-bg">{f.title}</h3>
-              <p className="mt-2 text-sm text-bg/55">{f.body}</p>
+              <h3 className="mt-5 font-display text-lg font-semibold text-ink">{f.title}</h3>
+              <p className="mt-2 text-sm text-ink/55">{f.body}</p>
             </Reveal>
           ))}
         </Stagger>

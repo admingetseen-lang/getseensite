@@ -20,7 +20,7 @@ export default function Anfrage() {
     setPicked((p) => (p.includes(s) ? p.filter((x) => x !== s) : [...p, s]));
 
   const inputClass =
-    "w-full rounded-2xl border border-line bg-bg px-4 py-3.5 text-base text-ink outline-none transition-colors duration-200 placeholder:text-ink/40 focus:border-accent";
+    "w-full rounded-2xl border border-line bg-white/10 px-4 py-3.5 text-base text-ink outline-none transition-colors duration-200 placeholder:text-ink/40 focus:border-accent";
 
   return (
     <>
@@ -34,7 +34,7 @@ export default function Anfrage() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
           <Reveal>
             {sent ? (
-              <div className="flex flex-col items-start gap-4 rounded-3xl border border-accent/30 bg-accent-soft p-10">
+              <div className="flex flex-col items-start gap-4 rounded-3xl glass border-accent/40 p-10">
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-white">
                   <IconCheck className="h-6 w-6" />
                 </span>
@@ -101,7 +101,7 @@ export default function Anfrage() {
                           className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-200 ${
                             active
                               ? "border-accent bg-accent text-white"
-                              : "border-line bg-bg text-ink/70 hover:border-ink/30"
+                              : "border-line bg-white/10 text-ink/70 hover:border-white/40"
                           }`}
                         >
                           {s}
