@@ -2,10 +2,11 @@ import { Reveal, Stagger } from "../components/Reveal";
 import { TextReveal } from "../components/TextReveal";
 import { fadeUp } from "../lib/motion";
 
+// Photo-to-role mapping: swap the `photo` values if the order is off.
 const TEAM = [
-  { role: "Informatik", focus: "Technik & KI-Integration" },
-  { role: "Handelsmanagement", focus: "Strategie & Kundenbetreuung" },
-  { role: "E-Commerce", focus: "Marketing & Sichtbarkeit" },
+  { role: "Informatik", focus: "Technik & KI-Integration", photo: "brand/team-1.jpg" },
+  { role: "Handelsmanagement", focus: "Strategie & Kundenbetreuung", photo: "brand/team-2.jpg" },
+  { role: "E-Commerce", focus: "Marketing & Sichtbarkeit", photo: "brand/team-3.jpg" },
 ];
 
 export function About() {
@@ -37,16 +38,17 @@ export function About() {
               variants={fadeUp}
               className="glass group flex flex-col p-6"
             >
-              {/* Team photo slot — drop a real photo in later */}
-              <div className="relative mb-5 aspect-[4/5] overflow-hidden rounded-2xl bg-gradient-to-br from-accent-soft/80 to-white/40">
+              <div className="relative mb-5 aspect-[4/5] overflow-hidden rounded-2xl">
                 <img
-                  src={`${import.meta.env.BASE_URL}brand/getseen.png`}
-                  alt=""
-                  className="absolute inset-0 m-auto w-1/2 opacity-25"
+                  src={`${import.meta.env.BASE_URL}${m.photo}`}
+                  alt={`Teammitglied — ${m.role}`}
+                  width={600}
+                  height={750}
+                  className="h-full w-full object-cover transition-transform duration-500 ease-reveal group-hover:scale-[1.04]"
                   loading="lazy"
                 />
               </div>
-              <span className="font-display text-base font-semibold leading-tight hyphens-auto" lang="de">
+              <span className="font-display text-base font-semibold leading-tight hyphens-auto [overflow-wrap:anywhere]" lang="de">
                 {m.role}
               </span>
               <span className="mt-1 text-sm text-ink/55">{m.focus}</span>
