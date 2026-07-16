@@ -41,7 +41,7 @@ export function Logo({
         alt={mark.alt}
         width={variant === "cloud" ? 34 : 38}
         height={variant === "cloud" ? 34 : 30}
-        className={variant === "cloud" ? "h-8 w-8 object-contain" : "h-8 w-auto object-contain"}
+        className={`block object-contain ${variant === "cloud" ? "h-8 w-8" : "h-7 w-auto"}`}
         loading="eager"
         decoding="async"
         onError={(e) => {
@@ -52,7 +52,7 @@ export function Logo({
         }}
       />
       {showWord && (
-        <span className="font-display text-xl font-semibold tracking-tight text-ink">
+        <span className="font-display text-xl font-semibold leading-none tracking-tight text-ink">
           {variant === "cloud" ? (
             <>
               GetSeen <span className="text-accent">Cloud</span>

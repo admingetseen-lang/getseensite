@@ -5,17 +5,33 @@ import { Layout } from "./components/Layout";
 import { CustomCursor } from "./components/CustomCursor";
 import Home from "./pages/Home";
 
+// Lazy loader that recovers from stale chunk references after a deploy:
+// if the import fails (old cached index pointing at removed hashes), reload once.
+function lazyRetry<T extends { default: React.ComponentType }>(load: () => Promise<T>) {
+  return lazy(() =>
+    load().catch((err) => {
+      const key = "chunk-reload";
+      if (!sessionStorage.getItem(key)) {
+        sessionStorage.setItem(key, "1");
+        window.location.reload();
+        return new Promise<never>(() => {});
+      }
+      throw err;
+    })
+  );
+}
+
 // Sub-routes are code-split so the landing page ships a leaner bundle.
-const Leistungen = lazy(() => import("./pages/Leistungen"));
-const Demo = lazy(() => import("./pages/Demo"));
-const Anfrage = lazy(() => import("./pages/Anfrage"));
-const Kontakt = lazy(() => import("./pages/Kontakt"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+const Leistungen = lazyRetry(() => import("./pages/Leistungen"));
+const Demo = lazyRetry(() => import("./pages/Demo"));
+const Anfrage = lazyRetry(() => import("./pages/Anfrage"));
+const Kontakt = lazyRetry(() => import("./pages/Kontakt"));
+const NotFound = lazyRetry(() => import("./pages/NotFound"));
 const Legal = () => import("./pages/Legal");
-const Impressum = lazy(() => Legal().then((m) => ({ default: m.Impressum })));
-const Datenschutz = lazy(() => Legal().then((m) => ({ default: m.Datenschutz })));
-const AGB = lazy(() => Legal().then((m) => ({ default: m.AGB })));
-const Widerruf = lazy(() => Legal().then((m) => ({ default: m.Widerruf })));
+const Impressum = lazyRetry(() => Legal().then((m) => ({ default: m.Impressum })));
+const Datenschutz = lazyRetry(() => Legal().then((m) => ({ default: m.Datenschutz })));
+const AGB = lazyRetry(() => Legal().then((m) => ({ default: m.AGB })));
+const Widerruf = lazyRetry(() => Legal().then((m) => ({ default: m.Widerruf })));
 
 function RouteFallback() {
   return <div className="min-h-[60vh]" aria-hidden />;
