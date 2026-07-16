@@ -60,7 +60,8 @@
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.2em] text-ink/55;
+    @apply inline-flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.22em] text-ink/50;
+    font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
   }
 
   /* Primary CTA button */
@@ -78,13 +79,13 @@
 
   /* Glassmorphism panels — light surfaces sit on colour fields, dark ones on ink */
   .glass {
-    @apply rounded-3xl border border-white/15 bg-white/[0.07] backdrop-blur-xl;
+    @apply rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl;
     box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.35),
-      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      0 12px 40px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
   .glass-hover {
-    @apply transition-[border-color,background-color] duration-300 ease-reveal hover:border-accent/50 hover:bg-white/[0.11];
+    @apply transition-[border-color,background-color] duration-300 ease-reveal hover:border-white/20 hover:bg-white/[0.06];
   }
   .glass-dark {
     @apply rounded-3xl border border-white/10 bg-white/[0.06] backdrop-blur-xl;
@@ -94,6 +95,40 @@
   }
   .glass-dark-hover {
     @apply transition-[border-color,background-color] duration-300 ease-reveal hover:border-accent/50 hover:bg-white/10;
+  }
+
+  /* Technical micro-label (mono, uppercase) */
+  .label-mono {
+    @apply text-xs uppercase tracking-[0.18em] text-ink/45;
+    font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  /* Hairline divider that fades out to the right */
+  .hairline {
+    @apply h-px w-full border-0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03));
+  }
+
+  /* Cursor-tracking highlight — pair with <SpotlightCard> */
+  .spotlight {
+    position: relative;
+  }
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    background: radial-gradient(
+      420px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(124, 92, 255, 0.1),
+      transparent 65%
+    );
+  }
+  .spotlight:hover::before {
+    opacity: 1;
   }
 
   /* Soft brand-colour field to sit behind glass panels */

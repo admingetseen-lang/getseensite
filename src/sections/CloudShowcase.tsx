@@ -117,24 +117,23 @@ export function CloudShowcase() {
                   <span className="text-accent">{s.text}</span>
                 )}
               </div>
-              <p className="mt-2 text-sm text-ink/55">{s.label}</p>
+              <p className="label-mono mt-2.5 normal-case tracking-normal !text-ink/45">{s.label}</p>
             </Reveal>
           ))}
         </Stagger>
 
-        {/* Feature cards */}
-        <Stagger className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
-          {FEATURES.map((f) => (
-            <Reveal
-              key={f.title}
-              variants={fadeUp}
-              className="glass-dark glass-dark-hover group p-7"
-            >
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/15 text-accent transition-transform duration-300 ease-reveal group-hover:scale-105">
-                <f.icon />
-              </span>
-              <h3 className="mt-5 font-display text-lg font-semibold text-ink">{f.title}</h3>
-              <p className="mt-2 text-sm text-ink/55">{f.body}</p>
+        {/* Features — hairline columns instead of card grid */}
+        <Stagger className="mt-14 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
+          {FEATURES.map((f, i) => (
+            <Reveal key={f.title} variants={fadeUp} className="group border-t border-white/10 pt-5">
+              <div className="flex items-center justify-between">
+                <span className="flex items-center gap-2.5 text-accent">
+                  <f.icon className="h-5 w-5" />
+                  <h3 className="font-display text-base font-semibold text-ink">{f.title}</h3>
+                </span>
+                <span className="label-mono">{String(i + 1).padStart(2, "0")}</span>
+              </div>
+              <p className="mt-2.5 text-sm leading-relaxed text-ink/50">{f.body}</p>
             </Reveal>
           ))}
         </Stagger>

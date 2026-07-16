@@ -63,10 +63,8 @@ export default function Kontakt() {
                 className="glass glass-hover group flex h-full flex-col p-7"
                 data-cursor="grow"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-soft text-accent transition-transform duration-300 ease-reveal group-hover:scale-105">
-                  <c.icon />
-                </span>
-                <span className="mt-5 text-sm text-ink/50">{c.label}</span>
+                <c.icon className="h-5 w-5 text-accent" />
+                <span className="label-mono mt-5">{c.label}</span>
                 <span className="mt-1 font-medium text-ink">{c.value}</span>
               </a>
             </Reveal>
@@ -77,9 +75,7 @@ export default function Kontakt() {
           {/* Map embed with styled fallback (shown if the embed is blocked) */}
           <Reveal className="glass relative h-[320px] overflow-hidden !p-0">
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-soft text-accent">
-                <IconPin />
-              </span>
+              <IconPin className="h-6 w-6 text-accent" />
               <span className="mt-1 font-medium text-ink">
                 {CONTACT.street}, {CONTACT.city}
               </span>

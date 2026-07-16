@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { PageHeader } from "../components/PageHeader";
 import { Reveal, Stagger } from "../components/Reveal";
+import { SpotlightCard } from "../components/SpotlightCard";
 import { fadeUp } from "../lib/motion";
 import {
   IconWeb,
@@ -52,16 +53,15 @@ export default function Leistungen() {
       <section className="shell pb-section">
         <Stagger className="grid gap-4 sm:grid-cols-2" stagger={0.1}>
           {DETAIL.map((d) => (
-            <Reveal
-              key={d.title}
-              variants={fadeUp}
-              className="group glass glass-hover p-8"
-            >
-              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-soft text-accent transition-transform duration-300 ease-reveal group-hover:scale-105">
-                <d.icon />
-              </span>
-              <h2 className="mt-6 font-display text-2xl font-semibold">{d.title}</h2>
-              <p className="mt-3 text-ink/65">{d.body}</p>
+            <Reveal key={d.title} variants={fadeUp}>
+              <SpotlightCard className="glass glass-hover group h-full p-8">
+                <div className="flex items-center justify-between">
+                  <d.icon className="h-5 w-5 text-accent" />
+                  <span className="hairline max-w-[55%]" aria-hidden />
+                </div>
+                <h2 className="mt-6 font-display text-2xl font-semibold">{d.title}</h2>
+                <p className="mt-3 text-ink/55">{d.body}</p>
+              </SpotlightCard>
             </Reveal>
           ))}
         </Stagger>
@@ -79,7 +79,7 @@ export default function Leistungen() {
           <Stagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
             {STEPS.map((s) => (
               <Reveal key={s.n} variants={fadeUp} className="border-t border-white/15 pt-5">
-                <span className="font-display text-3xl font-semibold text-accent">{s.n}</span>
+                <span className="label-mono text-accent/80">{s.n}</span>
                 <h3 className="mt-3 font-display text-lg font-semibold">{s.t}</h3>
                 <p className="mt-2 text-ink/60">{s.d}</p>
               </Reveal>

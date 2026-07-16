@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Reveal, Stagger } from "../components/Reveal";
 import { SectionHeading } from "../components/SectionHeading";
 import { fadeUp } from "../lib/motion";
+import { IconArrow } from "../components/Icons";
 
 const BENEFITS = [
   {
@@ -33,43 +34,63 @@ export function Benefits() {
         <div className="absolute inset-0 bg-gradient-to-b from-bg via-accent-soft/40 to-bg" />
       </div>
       <div className="shell">
-      <SectionHeading
-        eyebrow="Vorteile"
-        titleLines={["Warum Unternehmen", "mit uns arbeiten."]}
-      />
+        <SectionHeading
+          eyebrow="Vorteile"
+          titleLines={["Warum Unternehmen", "mit uns arbeiten."]}
+        />
 
-      <Stagger className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
-        {BENEFITS.map((b, i) => (
-          <Reveal
-            key={b.title}
-            variants={fadeUp}
-            className="glass glass-hover group flex flex-col p-8"
-          >
-            <span className="font-display text-sm font-medium text-accent">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <h3 className="mt-4 font-display text-xl font-semibold">{b.title}</h3>
-            <p className="mt-3 text-ink/65">{b.body}</p>
+        <div className="mt-14 grid items-start gap-12 lg:grid-cols-[1.6fr_1fr] lg:gap-20">
+          {/* editorial numbered list */}
+          <Stagger as="ul" className="group/list" stagger={0.07}>
+            {BENEFITS.map((b, i) => (
+              <Reveal
+                key={b.title}
+                as="li"
+                variants={fadeUp}
+                className="group border-t border-white/10 py-7 transition-opacity duration-300 last:border-b hover:!opacity-100 group-hover/list:opacity-50"
+              >
+                <div className="grid gap-2 sm:grid-cols-[3.5rem_16rem_1fr] sm:gap-6">
+                  <span className="label-mono pt-1 text-accent/80">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="font-display text-lg font-semibold leading-snug">
+                    {b.title}
+                  </h3>
+                  <p className="text-ink/55 sm:pt-0.5">{b.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </Stagger>
+
+          {/* quiet CTA panel */}
+          <Reveal className="glass relative overflow-hidden p-8 lg:sticky lg:top-28">
+            <div
+              aria-hidden
+              className="absolute inset-x-0 top-0 h-px"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent, rgba(31,59,255,0.7), transparent)",
+              }}
+            />
+            <span className="label-mono">Nächster Schritt</span>
+            <h3 className="mt-4 font-display text-2xl font-semibold leading-snug">
+              Bereit, sichtbar
+              <br />
+              zu werden?
+            </h3>
+            <p className="mt-3 text-ink/55">
+              Unverbindlich anfragen — wir melden uns innerhalb von 24 Stunden.
+            </p>
+            <Link
+              to="/anfrage"
+              className="group mt-7 inline-flex items-center gap-2 font-medium text-accent"
+              data-cursor="grow"
+            >
+              <span className="link-underline">Anfrage starten</span>
+              <IconArrow className="h-5 w-5 transition-transform duration-300 ease-reveal group-hover:translate-x-1" />
+            </Link>
           </Reveal>
-        ))}
-
-        {/* trailing CTA tile filling the grid */}
-        <Reveal
-          variants={fadeUp}
-          className="flex flex-col justify-center rounded-3xl border border-white/20 bg-accent/90 p-8 text-white shadow-[0_8px_32px_rgba(31,59,255,0.35)] backdrop-blur-xl"
-        >
-          <h3 className="font-display text-xl font-semibold">
-            Bereit, sichtbar zu werden?
-          </h3>
-          <Link
-            to="/anfrage"
-            className="mt-4 inline-flex w-fit items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-accent"
-            data-cursor="grow"
-          >
-            Anfrage starten
-          </Link>
-        </Reveal>
-      </Stagger>
+        </div>
       </div>
     </section>
   );

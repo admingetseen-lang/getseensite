@@ -252,9 +252,7 @@ export function WebsiteCheck() {
                   >
                     <div className="mb-3 flex items-center justify-between gap-3">
                       <span className="flex items-center gap-2.5 font-display font-semibold">
-                        <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent-soft text-accent">
-                          <c.icon className="h-5 w-5" />
-                        </span>
+                        <c.icon className="h-[18px] w-[18px] text-accent" />
                         {c.label}
                       </span>
                       <span
