@@ -36,8 +36,19 @@ const FEATURES = [
 
 export function CloudShowcase() {
   return (
-    <section id="cloud" className="scroll-mt-24 bg-ink py-section text-bg">
-      <div className="shell">
+    <section id="cloud" className="relative scroll-mt-24 overflow-hidden bg-ink py-section text-bg">
+      {/* subtle glass-cube footage behind the content (hidden under reduced motion) */}
+      <video
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16] motion-reduce:hidden"
+        src={`${import.meta.env.BASE_URL}media/cloud-loop.mp4`}
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/60 via-transparent to-ink/60" />
+      <div className="shell relative">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <Reveal>

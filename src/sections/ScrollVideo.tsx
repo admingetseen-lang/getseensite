@@ -203,25 +203,27 @@ function Statement({
   );
 
   return (
-    <div className="pointer-events-none absolute inset-0 flex items-center">
-      <div className="shell w-full">
-        <motion.div style={{ opacity }}>
-          <h2 className="font-display text-display-md font-semibold text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.25)]">
-            {lines.map((l, i) => (
-              <span key={i} className="block overflow-hidden pb-[0.06em]">
-                <motion.span className="block" style={{ y }}>
-                  {l}
-                </motion.span>
-              </span>
-            ))}
-          </h2>
-          {sub && (
-            <motion.p style={{ y }} className="mt-5 max-w-prose text-lg text-white/85">
-              {sub}
-            </motion.p>
-          )}
-        </motion.div>
-      </div>
+    <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6">
+      {/* frosted glass slab, centered over the free middle of the footage */}
+      <motion.div
+        style={{ opacity }}
+        className="rounded-[2rem] border border-white/25 bg-white/10 px-8 py-8 text-center shadow-[0_16px_48px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] backdrop-blur-xl sm:px-14 sm:py-10"
+      >
+        <h2 className="font-display text-display-md font-semibold text-white">
+          {lines.map((l, i) => (
+            <span key={i} className="block overflow-hidden pb-[0.06em]">
+              <motion.span className="block" style={{ y }}>
+                {l}
+              </motion.span>
+            </span>
+          ))}
+        </h2>
+        {sub && (
+          <motion.p style={{ y }} className="mx-auto mt-4 max-w-prose text-lg text-white/85">
+            {sub}
+          </motion.p>
+        )}
+      </motion.div>
     </div>
   );
 }
