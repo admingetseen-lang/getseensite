@@ -306,26 +306,16 @@ export function Datenschutz() {
         </p>
       </Section>
 
-      <Section n="06" title="Webfonts">
+      <Section n="06" title="Webfonts (lokal gehostet)">
         <p>
-          Zur einheitlichen Darstellung verwendet diese Website Schriftarten von Fontshare
-          (Indian Type Foundry) und Google Fonts. Beim Aufruf der Seite lädt Ihr Browser die
-          Schriften von den Servern der Anbieter; dabei wird technisch bedingt Ihre IP-Adresse
-          übermittelt.
-        </p>
-        <p>
-          Anbieter: Indian Type Foundry (Fontshare),{" "}
-          <a href="https://www.fontshare.com" target="_blank" rel="noopener noreferrer">
-            fontshare.com
-          </a>{" "}
-          · Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland,{" "}
-          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
-            policies.google.com/privacy
-          </a>
+          Zur einheitlichen Darstellung verwendet diese Website die Schriftarten Clash Display
+          und Satoshi. Diese werden <strong>lokal von unserem Server ausgeliefert</strong> und
+          nicht von externen Anbietern (etwa Google Fonts oder Fontshare) nachgeladen. Dabei
+          werden <strong>keine Daten — insbesondere keine IP-Adresse — an Dritte übermittelt.</strong>
         </p>
         <p>
           Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer
-          einheitlichen, performanten Darstellung).
+          einheitlichen, performanten und datensparsamen Darstellung).
         </p>
       </Section>
 

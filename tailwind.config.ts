@@ -21,8 +21,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ['"Clash Display"', '"Space Grotesk"', "system-ui", "sans-serif"],
-        sans: ['"Satoshi"', "Inter", "system-ui", "sans-serif"],
+        display: ['"Clash Display"', "system-ui", "sans-serif"],
+        sans: ['"Satoshi"', "system-ui", "sans-serif"],
       },
       fontSize: {
         // comfortable body for an older audience
