@@ -39,8 +39,11 @@ src/
 
 All in `tailwind.config.ts`:
 
-- `bg #FAFAF8`, `ink #0E0E0E`, `paper #F2F1ED`, `line #E4E3DE`
-- `accent #1F3BFF` (ultramarine) — **swap here** for the official brand hex
+- `bg #0B0C11` (deep blue-black), `ink #F3F4F8` (near-white), `paper #13141B`
+  (raised surface), `line #262833` (muted border) — the site ships a **dark**
+  theme; the glass utilities assume this dark ground.
+- `accent #1F3BFF` (ultramarine), `accent.soft #141B3D`, `accent.ink #162BBF`
+  — **swap `accent.DEFAULT` here** for the official brand hex
 - Editorial display type scale, `ease-reveal` cubic-bezier `(0.22, 1, 0.36, 1)`
 
 ## Fonts

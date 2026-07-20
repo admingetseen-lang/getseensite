@@ -12,7 +12,7 @@ Language: German is primary; structure it so an English toggle can be added late
 
 ## Look & feel (final — build to this)
 
-Palette: warm off-white #FAFAF8 (background) and near-black #0E0E0E (ink). One accent only: ultramarine #1F3BFF, used sparingly for CTAs, links, key highlights and the animated stat counters. Add a soft "paper" card tone #F2F1ED and a muted border #E4E3DE.
+Palette (as shipped — the design evolved from the original light concept to a dark theme): deep blue-black #0B0C11 (background) and near-white #F3F4F8 (ink). One accent only: ultramarine #1F3BFF, used sparingly for CTAs, links, key highlights and the animated stat counters. Raised "paper" surface #13141B and a muted border #262833; accent-soft #141B3D and accent-ink #162BBF for hovers. The dark ground is what makes the frosted-glass panels read — see the glass utilities in src/index.css.
 
 Typography:
 - Headings: Clash Display (Fontshare)

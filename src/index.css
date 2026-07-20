@@ -96,6 +96,12 @@
   .glass-dark-hover {
     @apply transition-[border-color,background-color] duration-300 ease-reveal hover:border-accent/50 hover:bg-white/10;
   }
+  /* Frosted pill for the sticky navbar (scrolled state). Centralised so the
+     no-backdrop-filter fallback below can reach it. */
+  .glass-nav {
+    @apply rounded-full border border-white/15 bg-white/[0.07] backdrop-blur-xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  }
 
   /* Technical micro-label (mono, uppercase) */
   .label-mono {
@@ -202,5 +208,38 @@
   .animate-grain,
   .animate-gradient-drift {
     animation: none !important;
+  }
+}
+
+/* Robustness: glass panels rely on backdrop-filter to become visible over the
+   dark background. Where the browser can't blur the backdrop (older Safari,
+   Firefox with the feature off, some in-app browsers), the 4–7% white surface
+   is nearly invisible and content appears to float. Fall back to a solid raised
+   surface so every panel keeps a readable container. Same treatment when the
+   user asks the OS to reduce transparency (common for low-vision users — our
+   core audience). */
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .glass,
+  .glass-nav {
+    background-color: rgba(19, 20, 27, 0.92); /* paper @ high opacity */
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .glass-dark {
+    background-color: rgba(28, 30, 42, 0.94);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass,
+  .glass-nav {
+    background-color: rgba(19, 20, 27, 0.96);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .glass-dark {
+    background-color: rgba(28, 30, 42, 0.97);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 }

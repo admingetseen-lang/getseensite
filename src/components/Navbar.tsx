@@ -28,7 +28,7 @@ export function Navbar() {
         transition={{ duration: 0.6, ease: EASE_REVEAL, delay: 0.1 }}
         className={`mx-auto mt-3 flex max-w-shell items-center justify-between rounded-full px-4 py-2.5 transition-all duration-300 ease-reveal sm:px-5 ${
           scrolled
-            ? "border border-white/15 bg-white/[0.07] shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+            ? "glass-nav"
             : "border border-transparent bg-transparent"
         } w-[calc(100%-1.5rem)]`}
       >
