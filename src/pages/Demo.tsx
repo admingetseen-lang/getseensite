@@ -30,14 +30,69 @@ const STAGES = [
   "Finalisierung & Responsive…",
 ];
 
-const EXAMPLE = `Firma/Name: AlpenPhysio München
+// Verschiedene Beispiel-Unternehmen (per Klick wird zufällig eines geladen).
+const EXAMPLES = [
+  `Firma/Name: AlpenPhysio München
 Branche: Physiotherapie
 Zielgruppe: Berufstätige mit Rücken-/Nackenschmerzen
 Angebot: Physiotherapie, Manuelle Therapie, Massage
 USP / Besonderheit: Termine innerhalb von 48h, erfahrenes Team
 Stil (z.B. modern, premium): modern, clean
 CTA (z.B. Termin buchen): Termin anfragen
-Standort (optional): München`;
+Standort (optional): München`,
+
+  `Firma/Name: Trattoria Bella Vista
+Branche: Italienisches Restaurant
+Zielgruppe: Paare & Familien, die authentische Küche suchen
+Angebot: Hausgemachte Pasta, Holzofen-Pizza, Weinkarte, Mittagstisch
+USP / Besonderheit: Rezepte aus Apulien, eigene Terrasse, seit 1998
+Stil (z.B. modern, premium): warm, einladend, gehoben
+CTA (z.B. Termin buchen): Tisch reservieren
+Standort (optional): Köln-Ehrenfeld`,
+
+  `Firma/Name: Elektro Berger
+Branche: Elektroinstallation & Handwerk
+Zielgruppe: Hausbesitzer & Gewerbe in der Region
+Angebot: Elektroinstallation, Smart Home, PV-Anlagen, Notdienst
+USP / Besonderheit: Meisterbetrieb, 24h-Notdienst, Festpreisgarantie
+Stil (z.B. modern, premium): seriös, vertrauenswürdig, technisch
+CTA (z.B. Termin buchen): Kostenlos anfragen
+Standort (optional): Augsburg`,
+
+  `Firma/Name: Studio Lumen
+Branche: Friseur & Beauty
+Zielgruppe: Stilbewusste Kundinnen und Kunden, 25–45
+Angebot: Haarschnitt, Balayage, Make-up, Hochsteckfrisuren
+USP / Besonderheit: Nachhaltige Produkte, Farbexpertise, entspannte Atmosphäre
+Stil (z.B. modern, premium): elegant, minimalistisch, premium
+CTA (z.B. Termin buchen): Termin buchen
+Standort (optional): Hamburg`,
+
+  `Firma/Name: Körnerhaus
+Branche: Bio-Bäckerei & Café
+Zielgruppe: Gesundheitsbewusste, Familien, Homeoffice-Gäste
+Angebot: Sauerteigbrot, Frühstück, Kaffee-Spezialitäten, Catering
+USP / Besonderheit: 100 % Bio, eigene Röstung, regionale Zutaten
+Stil (z.B. modern, premium): natürlich, freundlich, handgemacht
+CTA (z.B. Termin buchen): Frühstück reservieren
+Standort (optional): Leipzig`,
+
+  `Firma/Name: CoreLab
+Branche: Boutique-Fitnessstudio
+Zielgruppe: Vielbeschäftigte, die effizient trainieren wollen
+Angebot: Personal Training, Kleingruppen-Kurse, Ernährungscoaching
+USP / Besonderheit: Max. 6 Teilnehmer, datenbasiertes Training, flexible Zeiten
+Stil (z.B. modern, premium): energiegeladen, modern, dunkel
+CTA (z.B. Termin buchen): Probetraining sichern
+Standort (optional): Stuttgart`,
+];
+
+// An den Worker angehängte Konzept-Leitlinie — hebt Detailgrad & Eigenständigkeit
+// der generierten Seite, ohne den Prompt aufzublähen. Für den Nutzer unsichtbar.
+const CONCEPT_GUIDANCE = `
+
+— Konzept-Anforderungen für die generierte Website —
+Entwickle ein eigenständiges, zum Unternehmen passendes Konzept statt einer Standardvorlage: eine individuelle Sektionsstruktur, konkrete branchenspezifische Texte (kein Lorem Ipsum, keine Platzhalter) und ein stimmiges, zur Branche und zum gewünschten Stil passendes Farb- und Typografie-Konzept. Enthalte mindestens einen Hero mit klarer Value Proposition, einen Leistungs-/Angebotsbereich, ein Vertrauenselement (z. B. Ablauf in Schritten, Vorteile oder eine kurze FAQ) sowie einen klaren Kontakt-/CTA-Bereich. Halte es fokussiert und hochwertig — lieber wenige, gut ausgearbeitete Sektionen als viele generische.`;
 
 const hasLine = (text: string, line: string) =>
   text.toLowerCase().includes(line.toLowerCase());
@@ -53,6 +108,14 @@ export default function Demo() {
   const previewRef = useRef<HTMLDivElement>(null);
   const timers = useRef<number[]>([]);
   const abortRef = useRef<AbortController>();
+  const lastExample = useRef(-1);
+
+  const loadExample = () => {
+    let i = Math.floor(Math.random() * EXAMPLES.length);
+    if (EXAMPLES.length > 1 && i === lastExample.current) i = (i + 1) % EXAMPLES.length;
+    lastExample.current = i;
+    setPrompt(EXAMPLES[i]);
+  };
 
   const done = TEMPLATE_LINES.filter((l) => hasLine(prompt, l)).length;
   const missing = TEMPLATE_LINES.length - done;
@@ -111,7 +174,7 @@ export default function Demo() {
       const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt }),
+        body: JSON.stringify({ prompt: prompt.trim() + CONCEPT_GUIDANCE }),
         signal: abortRef.current.signal,
       });
       const j = await res.json().catch(() => ({}));
@@ -227,7 +290,7 @@ export default function Demo() {
               >
                 {phase === "loading" ? "Wird erstellt…" : "Demo generieren"}
               </button>
-              <button type="button" onClick={() => setPrompt(EXAMPLE)} className="btn-ghost">
+              <button type="button" onClick={loadExample} className="btn-ghost">
                 Beispiel
               </button>
               {missing > 0 && (
