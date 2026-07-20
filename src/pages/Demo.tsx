@@ -5,11 +5,10 @@ import { Reveal } from "@/components/Reveal";
 import { ease } from "@/lib/motion";
 import { IconArrow, IconCheck } from "@/components/Icons";
 
-// Same-Origin auf getseen.shop (Hostinger, PHP-Endpoint); von Vorschau-Domains
-// aus wird der Endpoint auf der Hauptdomain aufgerufen (CORS dort erlaubt).
-const API_URL = window.location.hostname.endsWith("getseen.shop")
-  ? "/api/demo.php"
-  : "https://www.getseen.shop/api/demo.php";
+// KI-Demo-Backend: Cloudflare Worker (nimmt { prompt } entgegen, liefert { html }).
+// Derselbe Endpoint wie auf der bisherigen Seite; der Worker sendet CORS-Header,
+// funktioniert also von der Vorschau-Domain wie von getseen.shop.
+const API_URL = "https://getseenchatai.jolly-field-a969.workers.dev";
 
 const TEMPLATE_LINES = [
   "Firma/Name:",
