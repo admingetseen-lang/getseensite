@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { PageHeader } from "../components/PageHeader";
 import { Reveal, Stagger } from "../components/Reveal";
 import { fadeUp } from "../lib/motion";
@@ -42,6 +43,8 @@ const SOCIALS = [
 ];
 
 export default function Kontakt() {
+  const [mapLoaded, setMapLoaded] = useState(false);
+
   return (
     <>
       <PageHeader
@@ -72,29 +75,52 @@ export default function Kontakt() {
         </Stagger>
 
         <div className="mt-6 grid gap-4 lg:grid-cols-[1.4fr_1fr]">
-          {/* Map embed with styled fallback (shown if the embed is blocked) */}
+          {/* Map: loaded only after an explicit click (DSGVO — no request to
+              OpenStreetMap until the user consents by loading it). */}
           <Reveal className="glass relative h-[320px] overflow-hidden !p-0">
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center">
-              <IconPin className="h-6 w-6 text-accent" />
-              <span className="mt-1 font-medium text-ink">
-                {CONTACT.street}, {CONTACT.city}
-              </span>
-              <a
-                href="https://maps.google.com/?q=Gewerbepark+Bwb+2+83052+Bruckmühl"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-underline text-sm text-accent"
-              >
-                In Google Maps öffnen
-              </a>
-            </div>
-            <iframe
-              title="GetSeen Standort Bruckmühl"
-              className="absolute inset-0 h-full w-full grayscale-[0.2]"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=11.88%2C47.86%2C11.93%2C47.89&layer=mapnik&marker=47.875%2C11.905"
-            />
+            {mapLoaded ? (
+              <iframe
+                title="GetSeen Standort Bruckmühl"
+                className="absolute inset-0 h-full w-full grayscale-[0.2]"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=11.88%2C47.86%2C11.93%2C47.89&layer=mapnik&marker=47.875%2C11.905"
+              />
+            ) : (
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center">
+                <IconPin className="h-6 w-6 text-accent" />
+                <span className="font-medium text-ink">
+                  {CONTACT.street}, {CONTACT.city}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setMapLoaded(true)}
+                  className="btn-primary !px-5 !py-2.5 text-sm"
+                  data-cursor="grow"
+                >
+                  Karte laden
+                </button>
+                <p className="max-w-xs text-xs leading-relaxed text-ink/50">
+                  Beim Laden werden Daten (u. a. Ihre IP-Adresse) an OpenStreetMap übertragen.{" "}
+                  <a
+                    href="https://wiki.osmfoundation.org/wiki/Privacy_Policy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-underline text-accent"
+                  >
+                    Datenschutz
+                  </a>
+                </p>
+                <a
+                  href="https://maps.google.com/?q=Gewerbepark+Bwb+2+83052+Bruckmühl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline text-sm text-accent"
+                >
+                  In Google Maps öffnen
+                </a>
+              </div>
+            )}
           </Reveal>
 
           {/* Socials */}

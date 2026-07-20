@@ -321,12 +321,15 @@ export function Datenschutz() {
 
       <Section n="07" title="Kartendienst (OpenStreetMap)">
         <p>
-          Auf der Kontaktseite binden wir eine Karte von OpenStreetMap ein (OpenStreetMap
-          Foundation, Großbritannien). Beim Laden der Karte wird Ihre IP-Adresse an die Server von
-          OpenStreetMap übermittelt.
+          Auf der Kontaktseite können Sie optional eine Karte von OpenStreetMap laden
+          (OpenStreetMap Foundation, Großbritannien). Die Karte wird{" "}
+          <strong>erst nach Ihrem aktiven Klick auf „Karte laden"</strong> geladen — vorher
+          werden keine Daten an OpenStreetMap übermittelt. Erst beim Laden wird Ihre IP-Adresse an
+          die Server von OpenStreetMap übertragen.
         </p>
         <p>
-          Datenschutzerklärung:{" "}
+          Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung durch aktives Laden der
+          Karte). Datenschutzerklärung:{" "}
           <a
             href="https://wiki.osmfoundation.org/wiki/Privacy_Policy"
             target="_blank"
@@ -334,7 +337,7 @@ export function Datenschutz() {
           >
             wiki.osmfoundation.org/wiki/Privacy_Policy
           </a>
-          . Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.
+          .
         </p>
       </Section>
 
