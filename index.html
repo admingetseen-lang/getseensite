@@ -26,7 +26,11 @@
       property="og:description"
       content="Modernes KI-Webdesign, SEO und Automatisierung für lokale Unternehmen."
     />
-    <meta property="og:image" content="/og-image.svg" />
+    <meta property="og:image" content="https://www.getseen.shop/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="GetSeen — Online sichtbar und effizient werden" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -35,12 +39,47 @@
       name="twitter:description"
       content="Modernes KI-Webdesign, SEO und Automatisierung für lokale Unternehmen."
     />
-    <meta name="twitter:image" content="/og-image.svg" />
+    <meta name="twitter:image" content="https://www.getseen.shop/og-image.png" />
 
     <!-- Fonts (Clash Display + Satoshi) are self-hosted via @font-face in
          src/index.css — no external requests, DSGVO-clean. -->
 
     <title>GetSeen — Online sichtbar und effizient werden</title>
+
+    <!-- Structured data: local business (hilft der lokalen Sichtbarkeit bei Google) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "GetSeen UG (haftungsbeschränkt)",
+        "alternateName": "GetSeen",
+        "url": "https://www.getseen.shop/",
+        "image": "https://www.getseen.shop/og-image.png",
+        "logo": "https://www.getseen.shop/favicon-512.png",
+        "description": "Modernes KI-Webdesign, SEO und Automatisierung für lokale Unternehmen.",
+        "email": "info@getseen.shop",
+        "telephone": "+4980627014761",
+        "priceRange": "€€",
+        "areaServed": "DE",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Gewerbepark Bwb 2",
+          "postalCode": "83052",
+          "addressLocality": "Bruckmühl",
+          "addressRegion": "Bayern",
+          "addressCountry": "DE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 47.875,
+          "longitude": 11.905
+        },
+        "sameAs": [
+          "https://www.instagram.com/getseen.shop",
+          "https://www.tiktok.com/@getseen.shop"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
