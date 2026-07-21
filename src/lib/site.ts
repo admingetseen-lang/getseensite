@@ -22,23 +22,24 @@ export const CONTACT = {
 /** Referenzkunden — Logo-Wall auf der Startseite. `logo` optional (Pfad unter
  *  public/), sonst wird der Name als Wortmarke gezeigt. */
 export const CLIENTS = [
-  { name: "Seegraserie", url: "https://www.seegraerie.de" },
-  { name: "Gartenbau Mazza", url: "https://gartenbau-mazza.de" },
-  { name: "Claudia Stranghöner", url: "https://www.stranghöner.com" },
-  { name: "Montageteam Oberbayern", url: "https://montageteam-oberbayern.de" },
-  { name: "Rosenheimer Handwerker", url: "https://rosenheimer-handwerker.de" },
+  { name: "Seegraserie", url: "https://www.seegraerie.de", logo: "brand/seegraserie.png" },
+  { name: "Gartenbau Mazza", url: "https://gartenbau-mazza.de", logo: "brand/mazza.png" },
+  { name: "Claudia Stranghöner", url: "https://www.stranghöner.com", logo: "brand/stranghoener.png" },
+  { name: "Montageteam Oberbayern", url: "https://montageteam-oberbayern.de", logo: "brand/montageteam.png" },
+  { name: "Rosenheimer Handwerker", url: "https://rosenheimer-handwerker.de", logo: "brand/rosenheimer.png" },
   { name: "GetSeen Cloud", url: "https://www.getseen.cloud", logo: "brand/getseen-cloud.png" },
 ] as const;
 
 /** Partner & Förderer — Logo-Wall auf der Startseite. */
 export const PARTNERS = [
   { name: "GetSeen Cloud", url: "https://www.getseen.cloud", logo: "brand/getseen-cloud.png" },
-  { name: "Stellwerk18", url: "https://www.stellwerk18.de" },
-  { name: "BayStartUP", url: "https://www.baystartup.de" },
+  { name: "Stellwerk18", url: "https://www.stellwerk18.de", logo: "brand/stellwerk18.png" },
+  { name: "BayStartUP", url: "https://www.baystartup.de", logo: "brand/baystartup.png" },
   {
     name: "StMWi Bayern",
     fullName: "Bayerisches Staatsministerium für Wirtschaft, Landesentwicklung und Energie",
     url: "https://www.stmwi.bayern.de",
+    logo: "brand/stmwi.png",
   },
   { name: "Gründerland Bayern", url: "https://www.gruenderland.bayern" },
 ] as const;

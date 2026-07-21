@@ -28,17 +28,17 @@ function LogoWall({ label, items }: { label: string; items: readonly Item[] }) {
               aria-label={it.fullName ?? it.name}
               title={it.fullName ?? it.name}
               data-cursor="grow"
-              className="group flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] px-4 text-center transition-colors duration-300 ease-reveal hover:border-accent/40 hover:bg-white/[0.06]"
+              className="group flex h-24 items-center justify-center rounded-2xl border border-white/10 bg-white p-4 text-center transition duration-300 ease-reveal hover:-translate-y-0.5 hover:border-accent/60 hover:shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
             >
               {it.logo ? (
                 <img
                   src={`${import.meta.env.BASE_URL}${it.logo}`}
                   alt={it.name}
                   loading="lazy"
-                  className="max-h-9 w-auto opacity-80 transition-opacity duration-300 ease-reveal group-hover:opacity-100"
+                  className="max-h-full max-w-full object-contain"
                 />
               ) : (
-                <span className="font-display text-[0.95rem] font-semibold leading-tight text-ink/55 transition-colors duration-300 ease-reveal group-hover:text-ink">
+                <span className="font-display text-[0.95rem] font-semibold leading-tight text-neutral-700 transition-colors duration-300 ease-reveal group-hover:text-neutral-900">
                   {it.name}
                 </span>
               )}
