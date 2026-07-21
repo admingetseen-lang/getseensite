@@ -30,7 +30,7 @@ function LogoWall({ label, items }: { label: string; items: readonly Item[] }) {
               data-cursor="grow"
               className="group block text-center"
             >
-              <div className="flex h-24 items-center justify-center rounded-2xl border border-white/10 bg-white p-4 transition duration-300 ease-reveal group-hover:-translate-y-0.5 group-hover:border-accent/60 group-hover:shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+              <div className="glass flex h-24 items-center justify-center p-4 transition duration-300 ease-reveal group-hover:-translate-y-0.5 group-hover:border-accent/50 group-hover:bg-white/[0.07]">
                 {it.logo ? (
                   <img
                     src={`${import.meta.env.BASE_URL}${it.logo}`}
