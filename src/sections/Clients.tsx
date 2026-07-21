@@ -30,19 +30,21 @@ function LogoWall({ label, items }: { label: string; items: readonly Item[] }) {
               data-cursor="grow"
               className="group block text-center"
             >
-              <div className="glass flex h-24 items-center justify-center p-4 transition duration-300 ease-reveal group-hover:-translate-y-0.5 group-hover:border-accent/50 group-hover:bg-white/[0.07]">
-                {it.logo ? (
-                  <img
-                    src={`${import.meta.env.BASE_URL}${it.logo}`}
-                    alt={it.name}
-                    loading="lazy"
-                    className="max-h-full max-w-full object-contain"
-                  />
-                ) : (
-                  <span className="font-display text-[0.95rem] font-semibold leading-tight text-neutral-700">
-                    {it.name}
-                  </span>
-                )}
+              <div className="glass flex h-24 items-center justify-center p-2.5 transition duration-300 ease-reveal group-hover:-translate-y-0.5 group-hover:border-accent/50 group-hover:bg-white/[0.09]">
+                <div className="flex h-full w-full items-center justify-center rounded-xl bg-white/90 px-4 py-3">
+                  {it.logo ? (
+                    <img
+                      src={`${import.meta.env.BASE_URL}${it.logo}`}
+                      alt={it.name}
+                      loading="lazy"
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  ) : (
+                    <span className="font-display text-[0.95rem] font-semibold leading-tight text-neutral-700">
+                      {it.name}
+                    </span>
+                  )}
+                </div>
               </div>
               <span className="mt-2.5 block text-xs font-medium text-ink/55 transition-colors duration-300 ease-reveal group-hover:text-ink/80">
                 {it.name}
