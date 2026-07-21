@@ -28,20 +28,25 @@ function LogoWall({ label, items }: { label: string; items: readonly Item[] }) {
               aria-label={it.fullName ?? it.name}
               title={it.fullName ?? it.name}
               data-cursor="grow"
-              className="group flex h-24 items-center justify-center rounded-2xl border border-white/10 bg-white p-4 text-center transition duration-300 ease-reveal hover:-translate-y-0.5 hover:border-accent/60 hover:shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+              className="group block text-center"
             >
-              {it.logo ? (
-                <img
-                  src={`${import.meta.env.BASE_URL}${it.logo}`}
-                  alt={it.name}
-                  loading="lazy"
-                  className="max-h-full max-w-full object-contain"
-                />
-              ) : (
-                <span className="font-display text-[0.95rem] font-semibold leading-tight text-neutral-700 transition-colors duration-300 ease-reveal group-hover:text-neutral-900">
-                  {it.name}
-                </span>
-              )}
+              <div className="flex h-24 items-center justify-center rounded-2xl border border-white/10 bg-white p-4 transition duration-300 ease-reveal group-hover:-translate-y-0.5 group-hover:border-accent/60 group-hover:shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+                {it.logo ? (
+                  <img
+                    src={`${import.meta.env.BASE_URL}${it.logo}`}
+                    alt={it.name}
+                    loading="lazy"
+                    className="max-h-full max-w-full object-contain"
+                  />
+                ) : (
+                  <span className="font-display text-[0.95rem] font-semibold leading-tight text-neutral-700">
+                    {it.name}
+                  </span>
+                )}
+              </div>
+              <span className="mt-2.5 block text-xs font-medium text-ink/55 transition-colors duration-300 ease-reveal group-hover:text-ink/80">
+                {it.name}
+              </span>
             </a>
           </Reveal>
         ))}

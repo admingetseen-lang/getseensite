@@ -41,7 +41,7 @@ export const PARTNERS = [
     url: "https://www.stmwi.bayern.de",
     logo: "brand/stmwi.png",
   },
-  { name: "Gründerland Bayern", url: "https://www.gruenderland.bayern" },
+  { name: "Gründerland Bayern", url: "https://www.gruenderland.bayern", logo: "brand/gruenderland.png" },
 ] as const;
 
 export const NAV_LINKS = [
