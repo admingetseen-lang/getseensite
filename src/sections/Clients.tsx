@@ -31,7 +31,7 @@ function LogoWall({ label, items }: { label: string; items: readonly Item[] }) {
               className="group block text-center"
             >
               <div className="glass flex h-24 items-center justify-center p-2.5 transition duration-300 ease-reveal group-hover:-translate-y-0.5 group-hover:border-accent/50 group-hover:bg-white/[0.09]">
-                <div className="flex h-full w-full items-center justify-center rounded-xl bg-white/90 px-4 py-3">
+                <div className="flex h-full w-full items-center justify-center rounded-xl bg-white px-4 py-3">
                   {it.logo ? (
                     <img
                       src={`${import.meta.env.BASE_URL}${it.logo}`}
