@@ -14,7 +14,7 @@ export const EXTERNAL = {
 
 export const CONTACT = {
   email: "info@getseen.shop",
-  phoneFixed: "+49 8062 7014760",
+  phoneFixed: "+49 8062 7014761",
   street: "Gewerbepark Bwb 2",
   city: "83052 Bruckmühl",
 } as const;
