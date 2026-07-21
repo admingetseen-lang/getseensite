@@ -44,15 +44,9 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <IconPhone className="h-5 w-5 text-accent" />
-                <span>
-                  <a href={`tel:${CONTACT.phoneFixed.replace(/\s/g, "")}`} className="hover:text-ink">
-                    {CONTACT.phoneFixed}
-                  </a>{" "}
-                  ·{" "}
-                  <a href={`tel:${CONTACT.phoneMobile.replace(/\s/g, "")}`} className="hover:text-ink">
-                    {CONTACT.phoneMobile}
-                  </a>
-                </span>
+                <a href={`tel:${CONTACT.phoneFixed.replace(/\s/g, "")}`} className="hover:text-ink">
+                  {CONTACT.phoneFixed}
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <IconPin className="h-5 w-5 text-accent" />
@@ -98,6 +92,16 @@ export function Footer() {
                   className="link-underline text-ink/75 hover:text-ink"
                 >
                   PayPal
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://stripe.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline text-ink/75 hover:text-ink"
+                >
+                  Stripe
                 </a>
               </li>
             </ul>

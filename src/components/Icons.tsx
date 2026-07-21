@@ -120,13 +120,15 @@ export const IconInstagram = ({ className = "h-5 w-5" }: P) => (
 
 export const IconTiktok = ({ className = "h-5 w-5" }: P) => (
   <svg viewBox="0 0 24 24" className={className} {...common}>
-    <path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5M14 7a4.5 4.5 0 0 0 4.5 4.5" />
+    <path d="M13.8 13.6a3.4 3.4 0 1 1-3.4-3.4" />
+    <path d="M13.8 13.6V4c.5 2.4 2.4 4.1 4.7 4.3" />
   </svg>
 );
 
 export const IconFacebook = ({ className = "h-5 w-5" }: P) => (
   <svg viewBox="0 0 24 24" className={className} {...common}>
-    <path d="M14 8h2.5M14 8V6.5A1.5 1.5 0 0 1 15.5 5H17M14 8v12M14 12h3" />
+    <path d="M14.5 6.5H14c-1.1 0-2 .9-2 2V20" />
+    <path d="M9.5 12.5h5" />
   </svg>
 );
 

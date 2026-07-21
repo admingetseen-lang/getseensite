@@ -24,7 +24,7 @@ const CARDS = [
   {
     icon: IconPhone,
     label: "Telefon",
-    value: `${CONTACT.phoneFixed} · ${CONTACT.phoneMobile}`,
+    value: CONTACT.phoneFixed,
     href: `tel:${CONTACT.phoneFixed.replace(/\s/g, "")}`,
   },
   {

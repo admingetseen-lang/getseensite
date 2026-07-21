@@ -158,7 +158,6 @@ export default function Anfrage() {
                 <div>
                   <dt className="text-sm text-ink/50">Telefon</dt>
                   <dd>{CONTACT.phoneFixed}</dd>
-                  <dd>{CONTACT.phoneMobile}</dd>
                 </div>
                 <div>
                   <dt className="text-sm text-ink/50">Adresse</dt>

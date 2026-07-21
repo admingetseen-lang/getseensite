@@ -5,6 +5,7 @@ import { Services } from "../sections/Services";
 import { Benefits } from "../sections/Benefits";
 import { WebsiteCheck } from "../sections/WebsiteCheck";
 import { CloudShowcase } from "../sections/CloudShowcase";
+import { Clients } from "../sections/Clients";
 import { DemoCTA } from "../sections/DemoCTA";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <Benefits />
       <WebsiteCheck />
       <CloudShowcase />
+      <Clients />
       <DemoCTA />
     </>
   );
